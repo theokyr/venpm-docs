@@ -1,0 +1,7 @@
+{
+  "extends": "../venpm/tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "typeRoots": ["../venpm/node_modules/@types"]
+  }
+}

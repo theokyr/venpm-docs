@@ -1,0 +1,158 @@
+/* venpm Brand: Carbon Forest Amber */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=DM+Sans:wght@400;500&display=swap');
+
+:root {
+    /* ── Core palette ── */
+    --vp-bg: #0b0f0e;
+    --vp-surface: #141c1a;
+    --vp-border: #1c2b26;
+    --vp-muted: #4a5c56;
+    --vp-body: #94a3b8;
+    --vp-heading: #e8e8e8;
+    --vp-white: #f0f0f0;
+
+    /* ── Accent colors ── */
+    --vp-amber: #f97316;
+    --vp-amber-dim: #b45309;
+    --vp-amber-soft: rgba(249, 115, 22, 0.12);
+    --vp-emerald: #34d399;
+    --vp-emerald-dim: #059669;
+    --vp-red: #ef4444;
+    --vp-yellow: #fbbf24;
+
+    /* ── VitePress brand overrides ── */
+    --vp-c-brand-1: #f97316;
+    --vp-c-brand-2: #b45309;
+    --vp-c-brand-3: #92400e;
+    --vp-c-brand-soft: rgba(249, 115, 22, 0.14);
+
+    /* ── Typography ── */
+    --vp-font-family-base: 'DM Sans', system-ui, -apple-system, sans-serif;
+    --vp-font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+    /* ── Home hero ── */
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: linear-gradient(135deg, #f97316 0%, #f59e0b 50%, #34d399 100%);
+    --vp-home-hero-image-background-image: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(52, 211, 153, 0.15) 100%);
+    --vp-home-hero-image-filter: blur(56px);
+}
+
+/* ── Dark mode (VitePress default class) ── */
+.dark {
+    --vp-c-bg: #0b0f0e;
+    --vp-c-bg-alt: #141c1a;
+    --vp-c-bg-elv: #141c1a;
+    --vp-c-bg-soft: #141c1a;
+
+    --vp-c-border: #1c2b26;
+    --vp-c-divider: #1c2b26;
+    --vp-c-gutter: #0b0f0e;
+
+    --vp-c-text-1: #e8e8e8;
+    --vp-c-text-2: #94a3b8;
+    --vp-c-text-3: #4a5c56;
+
+    --vp-c-brand-1: #f97316;
+    --vp-c-brand-2: #b45309;
+    --vp-c-brand-3: #92400e;
+    --vp-c-brand-soft: rgba(249, 115, 22, 0.14);
+
+    --vp-c-tip-1: #34d399;
+    --vp-c-tip-2: rgba(52, 211, 153, 0.14);
+    --vp-c-tip-3: rgba(52, 211, 153, 0.08);
+
+    --vp-c-warning-1: #fbbf24;
+    --vp-c-warning-2: rgba(251, 191, 36, 0.14);
+    --vp-c-warning-3: rgba(251, 191, 36, 0.08);
+
+    --vp-c-danger-1: #ef4444;
+    --vp-c-danger-2: rgba(239, 68, 68, 0.14);
+    --vp-c-danger-3: rgba(239, 68, 68, 0.08);
+
+    --vp-code-block-bg: #141c1a;
+    --vp-code-line-highlight-color: rgba(249, 115, 22, 0.08);
+    --vp-c-code-dimm: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Headlines: JetBrains Mono, bold, tight tracking ── */
+.vp-doc h1 {
+    font-family: var(--vp-font-family-mono);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.vp-doc h2 {
+    font-family: var(--vp-font-family-mono);
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.vp-doc h3 {
+    font-family: var(--vp-font-family-mono);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.vp-doc h4 {
+    font-family: var(--vp-font-family-mono);
+    font-weight: 700;
+}
+
+/* ── Sidebar group headings: mono ── */
+.VPSidebarItem.level-0 .text {
+    font-family: var(--vp-font-family-mono);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* ── Nav links: mono accents ── */
+.VPNavBarMenuLink .text,
+.VPNavScreenMenuLink .text {
+    font-family: var(--vp-font-family-mono);
+    font-weight: 500;
+}
+
+/* ── Hero title: mono bold ── */
+.VPHero .name {
+    font-family: var(--vp-font-family-mono) !important;
+    font-weight: 800 !important;
+    letter-spacing: -2px;
+}
+
+.VPHero .text {
+    font-family: var(--vp-font-family-mono) !important;
+    font-weight: 700 !important;
+    letter-spacing: -1px;
+}
+
+/* ── Content area width ── */
+.vp-doc {
+    max-width: 800px;
+}
+
+/* ── Code blocks: emerald text on forest surface ── */
+.dark .vp-code-group .shiki,
+.dark div[class*="language-"] .shiki {
+    background-color: #141c1a !important;
+}
+
+/* ── Custom container (tip) uses emerald ── */
+.dark .custom-block.tip {
+    border-color: #34d399;
+}
+
+/* ── Custom container (warning) uses yellow ── */
+.dark .custom-block.warning {
+    border-color: #fbbf24;
+}
+
+/* ── Custom container (danger) uses red ── */
+.dark .custom-block.danger {
+    border-color: #ef4444;
+}
+
+/* ── Feature cards on home ── */
+.dark .VPFeature {
+    background-color: #141c1a;
+    border-color: #1c2b26;
+}

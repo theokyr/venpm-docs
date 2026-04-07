@@ -1,0 +1,14 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["../venpm/src/core/*.ts", "../venpm/src/cli/*.ts"],
+  "tsconfig": "./tsconfig.typedoc.json",
+  "out": "internals/generated",
+  "plugin": ["typedoc-plugin-markdown"],
+  "outputFileStrategy": "modules",
+  "entryFileName": "README",
+  "hidePageHeader": true,
+  "hideBreadcrumbs": true,
+  "useCodeBlocks": true,
+  "expandObjects": true,
+  "parametersFormat": "table"
+}
