@@ -18,7 +18,7 @@ Defined in: venpm/src/cli/create.ts:9
 optional config?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:191
+Defined in: venpm/src/core/types.ts:183
 
 ###### Inherited from
 
@@ -38,11 +38,23 @@ Defined in: venpm/src/cli/create.ts:11
 optional json?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:193
+Defined in: venpm/src/core/types.ts:187
 
 ###### Inherited from
 
 [`GlobalOptions`](../core/types.md#globaloptions).[`json`](../core/types.md#json-1)
+
+##### jsonStream?
+
+```ts
+optional jsonStream?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:188
+
+###### Inherited from
+
+[`GlobalOptions`](../core/types.md#globaloptions).[`jsonStream`](../core/types.md#jsonstream-1)
 
 ##### native?
 
@@ -51,6 +63,18 @@ optional native?: boolean;
 ```
 
 Defined in: venpm/src/cli/create.ts:12
+
+##### quiet?
+
+```ts
+optional quiet?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:185
+
+###### Inherited from
+
+[`GlobalOptions`](../core/types.md#globaloptions).[`quiet`](../core/types.md#quiet-1)
 
 ##### tsx?
 
@@ -66,11 +90,23 @@ Defined in: venpm/src/cli/create.ts:10
 optional verbose?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:192
+Defined in: venpm/src/core/types.ts:184
 
 ###### Inherited from
 
 [`GlobalOptions`](../core/types.md#globaloptions).[`verbose`](../core/types.md#verbose-1)
+
+##### yes?
+
+```ts
+optional yes?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:186
+
+###### Inherited from
+
+[`GlobalOptions`](../core/types.md#globaloptions).[`yes`](../core/types.md#yes-1)
 
 ## Functions
 
@@ -107,7 +143,7 @@ function executeCreate(
 options): Promise<void>;
 ```
 
-Defined in: venpm/src/cli/create.ts:242
+Defined in: venpm/src/cli/create.ts:244
 
 #### Parameters
 
@@ -163,7 +199,7 @@ $schema contains "venpm". Returns { path, data } if found, null otherwise.
 function registerCreateCommand(program): void;
 ```
 
-Defined in: venpm/src/cli/create.ts:266
+Defined in: venpm/src/cli/create.ts:267
 
 #### Parameters
 

@@ -8,6 +8,8 @@ Every command supports these global flags:
 | `--verbose` | Enable verbose output |
 | `--quiet` | Suppress non-essential output |
 | `--json` | Output structured JSON (see [JSON Output](/api/json-output)) |
+| `--json-stream` | Output events as NDJSON (see [JSON Output](/api/json-output#ndjson-streaming)) |
+| `--no-color` | Disable colored output |
 
 ---
 
@@ -53,7 +55,12 @@ venpm install myPlugin --local ./plugins/myPlugin --no-build
 | Code | Meaning |
 |------|---------|
 | `0` | Plugin installed successfully |
-| `1` | Plugin not found, resolution failure, or fetch error |
+| `1` | Plugin not found, resolution failure, or cancelled |
+| `3` | Environment error (Vencord not found, git missing, build failed) |
+
+> See [Error Codes](/api/error-codes) for the full list of structured error codes returned with each error.
+
+> **Tip:** If the plugin name has a typo, venpm suggests close matches: *"Did you mean: BetterVolume?"*
 
 ---
 
@@ -78,6 +85,10 @@ Checks for reverse dependencies — if other installed plugins depend on the one
 | `0` | Plugin removed |
 | `1` | Plugin not installed, or user cancelled |
 
+> See [Error Codes](/api/error-codes) for the full list of structured error codes returned with each error.
+
+> **Tip:** If the plugin name has a typo, venpm suggests close matches: *"Did you mean: BetterVolume?"*
+
 ---
 
 ## venpm update
@@ -101,7 +112,10 @@ Fetches fresh indexes from all repos, compares installed versions against latest
 | Code | Meaning |
 |------|---------|
 | `0` | Update complete (even if nothing was updated) |
-| `1` | Plugin not found or fetch error |
+| `1` | Plugin not found or cancelled |
+| `3` | Environment error (Vencord not found, git missing, build failed) |
+
+> See [Error Codes](/api/error-codes) for the full list of structured error codes returned with each error.
 
 ---
 
@@ -118,12 +132,13 @@ venpm list
 ### Output Format
 
 ```
-channelTabs@0.1.0       [kamaras-plugins] (git)
-settingsHub@0.1.0       [kamaras-plugins] (git)
-myPlugin@local          [local] (local) pinned
-```
+  Installed plugins (3):
 
-Each line shows: name@version, repo name, fetch method, and flags (pinned, local).
+  Name          Version  Method  Repo              Flags
+  channelTabs   0.1.0    git     kamaras-plugins
+  settingsHub   0.1.0    git     kamaras-plugins
+  myPlugin      local    local   local             pinned
+```
 
 ### Exit Codes
 
@@ -175,6 +190,10 @@ Shows version, description, authors, license, dependencies, optional dependencie
 |------|---------|
 | `0` | Plugin found |
 | `1` | Plugin not found in any repo |
+
+> See [Error Codes](/api/error-codes) for the full list of structured error codes returned with each error.
+
+> **Tip:** If the plugin name has a typo, venpm suggests close matches: *"Did you mean: BetterVolume?"*
 
 ---
 
@@ -316,7 +335,10 @@ Runs `pnpm build` in the Vencord source tree, copies the output to Discord's loa
 | Code | Meaning |
 |------|---------|
 | `0` | Build succeeded |
-| `1` | Vencord path not configured, pnpm not found, or build failed |
+| `1` | Command error (cancelled, etc.) |
+| `3` | Environment error (Vencord not found, pnpm not found, build failed) |
+
+> See [Error Codes](/api/error-codes) for the full list of structured error codes returned with each error.
 
 ---
 
@@ -384,3 +406,43 @@ venpm validate plugins.json --strict
 |------|---------|
 | `0` | Valid |
 | `1` | Schema errors or strict-mode failures |
+
+> See [Error Codes](/api/error-codes) for the full list of structured error codes returned with each error.
+
+---
+
+## venpm completions
+
+Output a shell completion script.
+
+### Usage
+
+```
+venpm completions [shell]
+```
+
+### Arguments
+
+| Argument | Description |
+|----------|-------------|
+| `shell` | Shell type: `bash`, `zsh`, or `fish`. Auto-detected from `$SHELL` if omitted. |
+
+### Setup
+
+```bash
+# Zsh (add to ~/.zshrc)
+eval "$(venpm completions zsh)"
+
+# Bash (add to ~/.bashrc)
+eval "$(venpm completions bash)"
+
+# Fish
+venpm completions fish | source
+```
+
+### Exit Codes
+
+| Code | Meaning |
+|------|---------|
+| `0` | Script output |
+| `2` | Unknown shell type |

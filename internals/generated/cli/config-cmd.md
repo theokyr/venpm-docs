@@ -8,7 +8,7 @@
 function registerConfigCommand(program): void;
 ```
 
-Defined in: venpm/src/cli/config-cmd.ts:43
+Defined in: venpm/src/cli/config-cmd.ts:58
 
 #### Parameters
 

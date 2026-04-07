@@ -8,13 +8,14 @@
 function createPrompter(options): Prompter;
 ```
 
-Defined in: venpm/src/core/prompt.ts:3
+Defined in: venpm/src/core/prompt.ts:4
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `options` | \{ `yes`: `boolean`; \} |
+| `options` | \{ `nonInteractive?`: `boolean`; `yes`: `boolean`; \} |
+| `options.nonInteractive?` | `boolean` |
 | `options.yes` | `boolean` |
 
 #### Returns

@@ -11,7 +11,7 @@ function executeInstall(
 options): Promise<void>;
 ```
 
-Defined in: venpm/src/cli/install.ts:18
+Defined in: venpm/src/cli/install.ts:19
 
 #### Parameters
 
@@ -33,7 +33,7 @@ Defined in: venpm/src/cli/install.ts:18
 function registerInstallCommand(program): void;
 ```
 
-Defined in: venpm/src/cli/install.ts:255
+Defined in: venpm/src/cli/install.ts:242
 
 #### Parameters
 

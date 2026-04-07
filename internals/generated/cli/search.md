@@ -11,7 +11,7 @@ function executeSearch(
 options?): Promise<void>;
 ```
 
-Defined in: venpm/src/cli/search.ts:10
+Defined in: venpm/src/cli/search.ts:9
 
 #### Parameters
 
@@ -33,7 +33,7 @@ Defined in: venpm/src/cli/search.ts:10
 function registerSearchCommand(program): void;
 ```
 
-Defined in: venpm/src/cli/search.ts:49
+Defined in: venpm/src/cli/search.ts:51
 
 #### Parameters
 

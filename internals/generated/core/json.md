@@ -4,7 +4,7 @@
 
 ### JsonEnvelope
 
-Defined in: venpm/src/core/json.ts:1
+Defined in: venpm/src/core/json.ts:3
 
 #### Type Parameters
 
@@ -20,15 +20,15 @@ Defined in: venpm/src/core/json.ts:1
 optional data?: T;
 ```
 
-Defined in: venpm/src/core/json.ts:4
+Defined in: venpm/src/core/json.ts:6
 
 ##### error?
 
 ```ts
-optional error?: string;
+optional error?: ErrorInfo;
 ```
 
-Defined in: venpm/src/core/json.ts:3
+Defined in: venpm/src/core/json.ts:5
 
 ##### success
 
@@ -36,23 +36,31 @@ Defined in: venpm/src/core/json.ts:3
 success: boolean;
 ```
 
-Defined in: venpm/src/core/json.ts:2
+Defined in: venpm/src/core/json.ts:4
+
+##### warnings?
+
+```ts
+optional warnings?: string[];
+```
+
+Defined in: venpm/src/core/json.ts:7
 
 ## Functions
 
 ### jsonError()
 
 ```ts
-function jsonError(message): JsonEnvelope<never>;
+function jsonError(error): JsonEnvelope<never>;
 ```
 
-Defined in: venpm/src/core/json.ts:11
+Defined in: venpm/src/core/json.ts:18
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `message` | `string` |
+| `error` | [`ErrorInfo`](errors.md#errorinfo) |
 
 #### Returns
 
@@ -63,10 +71,10 @@ Defined in: venpm/src/core/json.ts:11
 ### jsonSuccess()
 
 ```ts
-function jsonSuccess<T>(data): JsonEnvelope<T>;
+function jsonSuccess<T>(data, warnings?): JsonEnvelope<T>;
 ```
 
-Defined in: venpm/src/core/json.ts:7
+Defined in: venpm/src/core/json.ts:10
 
 #### Type Parameters
 
@@ -79,6 +87,7 @@ Defined in: venpm/src/core/json.ts:7
 | Parameter | Type |
 | ------ | ------ |
 | `data` | `T` |
+| `warnings?` | `string`[] |
 
 #### Returns
 
@@ -92,7 +101,7 @@ Defined in: venpm/src/core/json.ts:7
 function writeJson(envelope, write?): void;
 ```
 
-Defined in: venpm/src/core/json.ts:15
+Defined in: venpm/src/core/json.ts:22
 
 #### Parameters
 

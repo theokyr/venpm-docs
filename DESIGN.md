@@ -134,3 +134,74 @@ Touch targets: 44x44px minimum. Typography scales per the responsive table in Se
 
 **Example: terminal output**
 > Show a venpm install command. Use `#141c1a` bg, 1px `#1c2b26` border, 4px radius. Command prompt `$` in `#4a5c56`. Command text in `#e8e8e8`. Plugin name in `#f97316`. Success output lines with `#34d399` `+` prefix. Timing in `#4a5c56`.
+
+## 10. CLI Terminal Output
+
+The CLI maps the Carbon Forest Amber palette to 24-bit ANSI true color. These colors are used by the `TtyRenderer` when stdout is a TTY and `NO_COLOR` is not set.
+
+### ANSI Color Mapping
+
+| Role | Hex | ANSI Code | CLI Usage |
+|------|-----|-----------|-----------|
+| Amber (Brand) | `#f97316` | `38;2;249;115;22` | Commands, plugin names, `?` prompt prefix, `⟩` sigil |
+| Emerald (Success) | `#34d399` | `38;2;52;211;153` | `✔` success checkmark |
+| Red (Error) | `#ef4444` | `38;2;239;68;68` | `✖` error prefix |
+| Yellow (Warning) | `#fbbf24` | `38;2;251;191;36` | `⚠` warning prefix |
+| Dim (Muted) | `#4a5c56` | `38;2;74;92;86` | Hints, timestamps, secondary labels, error codes |
+| Bright (Heading) | `#e8e8e8` | `38;2;232;232;232` | Section headers, emphasis |
+
+### Brand Sigil
+
+The `⟩` (right-pointing angle bracket, U+27E9) is venpm's progress sigil. It appears in:
+- Spinner animations during long operations (amber)
+- Error suggestions (`⟩ Did you mean: BetterVolume`)
+- The three-frame spinner pulse: `⟩`, `⟫`, `⟩`
+
+### Output Patterns
+
+**Install flow:**
+```
+  ⟩ Fetching indexes...                     (amber ⟩, spinner)
+  ✔ 2 repos, 47 plugins                     (emerald ✔)
+  ✔ Install plan:
+    BetterVolume@1.2.0 via git               (amber name, dim version/method)
+    _libAnimationKit@0.3.1 via git (dep)
+
+  ? Proceed? [Y/n]                           (amber ?)
+
+  ⟩ Cloning BetterVolume...
+  ✔ Successfully installed BetterVolume
+```
+
+**Error with fuzzy match:**
+```
+  ✖ Plugin "BeterVolume" not found           (red ✖)
+  ⟩ Did you mean: BetterVolume               (amber ⟩)
+                              [PLUGIN_NOT_FOUND]  (dim code)
+```
+
+**Doctor output:**
+```
+  ✔ git          available                   (emerald ✔)
+  ✔ pnpm         available
+  ~ Vencord      ~/src/Vencord (auto)        (~ for warnings)
+  ✗ Discord      not found                   (red ✗)
+```
+
+### Environment Signals
+
+| Signal | Effect |
+|--------|--------|
+| `NO_COLOR` set | All color disabled |
+| `FORCE_COLOR` set | Color enabled even without TTY |
+| `CI=true` | PlainRenderer selected (no color) |
+| `--no-color` flag | Equivalent to `NO_COLOR=1` |
+
+### Output Modes
+
+| Mode | When | Behavior |
+|------|------|----------|
+| **TTY** | stdout is a terminal | Colored, animated spinners |
+| **Plain** | Piped / `NO_COLOR` / CI | No ANSI, discrete lines |
+| **JSON** | `--json` flag | Single envelope at end |
+| **NDJSON** | `--json-stream` flag | One JSON object per line |

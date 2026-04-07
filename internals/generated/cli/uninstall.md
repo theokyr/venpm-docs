@@ -11,7 +11,7 @@ function executeUninstall(
 options): Promise<void>;
 ```
 
-Defined in: venpm/src/cli/uninstall.ts:12
+Defined in: venpm/src/cli/uninstall.ts:13
 
 #### Parameters
 
@@ -33,7 +33,7 @@ Defined in: venpm/src/cli/uninstall.ts:12
 function registerUninstallCommand(program): void;
 ```
 
-Defined in: venpm/src/cli/uninstall.ts:64
+Defined in: venpm/src/cli/uninstall.ts:62
 
 #### Parameters
 

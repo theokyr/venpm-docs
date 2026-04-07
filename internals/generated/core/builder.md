@@ -4,7 +4,7 @@
 
 ### BuildAndDeployOptions
 
-Defined in: venpm/src/core/builder.ts:82
+Defined in: venpm/src/core/builder.ts:95
 
 #### Properties
 
@@ -14,7 +14,7 @@ Defined in: venpm/src/core/builder.ts:82
 optional discordBinary?: string;
 ```
 
-Defined in: venpm/src/core/builder.ts:84
+Defined in: venpm/src/core/builder.ts:97
 
 ##### restart?
 
@@ -22,7 +22,7 @@ Defined in: venpm/src/core/builder.ts:84
 optional restart?: boolean;
 ```
 
-Defined in: venpm/src/core/builder.ts:83
+Defined in: venpm/src/core/builder.ts:96
 
 ***
 
@@ -48,6 +48,14 @@ optional deployPath?: string;
 
 Defined in: venpm/src/core/builder.ts:17
 
+##### restarted
+
+```ts
+restarted: boolean;
+```
+
+Defined in: venpm/src/core/builder.ts:18
+
 ## Variables
 
 ### DEPLOY\_PATHS
@@ -70,7 +78,7 @@ function buildAndDeploy(
 options?): Promise<DeployResult>;
 ```
 
-Defined in: venpm/src/core/builder.ts:90
+Defined in: venpm/src/core/builder.ts:103
 
 Orchestrate build → deploy → (optional) restart.
 
@@ -95,7 +103,7 @@ Orchestrate build → deploy → (optional) restart.
 function buildVencord(shell, vencordPath): Promise<void>;
 ```
 
-Defined in: venpm/src/core/builder.ts:26
+Defined in: venpm/src/core/builder.ts:27
 
 Run `pnpm build` inside `vencordPath`.
 Throws an error if the build exits with a non-zero code.
@@ -119,7 +127,7 @@ Throws an error if the build exits with a non-zero code.
 function deployDist(fs, vencordPath): Promise<DeployResult>;
 ```
 
-Defined in: venpm/src/core/builder.ts:41
+Defined in: venpm/src/core/builder.ts:42
 
 Copy `<vencordPath>/dist/` to the platform-specific deployed location.
 Skips silently when the deployed directory does not exist on disk.
@@ -143,7 +151,7 @@ Skips silently when the deployed directory does not exist on disk.
 function restartDiscord(shell, discordBinary): Promise<void>;
 ```
 
-Defined in: venpm/src/core/builder.ts:63
+Defined in: venpm/src/core/builder.ts:64
 
 Kill Discord via `pkill`, wait briefly, then spawn the binary detached.
 If pkill reports the process is not running (exit code 1) the kill step is

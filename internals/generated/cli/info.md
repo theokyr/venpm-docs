@@ -11,7 +11,7 @@ function executeInfo(
 options?): Promise<void>;
 ```
 
-Defined in: venpm/src/cli/info.ts:11
+Defined in: venpm/src/cli/info.ts:12
 
 #### Parameters
 
@@ -33,7 +33,7 @@ Defined in: venpm/src/cli/info.ts:11
 function registerInfoCommand(program): void;
 ```
 
-Defined in: venpm/src/cli/info.ts:105
+Defined in: venpm/src/cli/info.ts:96
 
 #### Parameters
 

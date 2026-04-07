@@ -8,7 +8,7 @@
 function executeList(ctx, options?): Promise<void>;
 ```
 
-Defined in: venpm/src/cli/list.ts:8
+Defined in: venpm/src/cli/list.ts:7
 
 #### Parameters
 
@@ -29,7 +29,7 @@ Defined in: venpm/src/cli/list.ts:8
 function registerListCommand(program): void;
 ```
 
-Defined in: venpm/src/cli/list.ts:37
+Defined in: venpm/src/cli/list.ts:41
 
 #### Parameters
 

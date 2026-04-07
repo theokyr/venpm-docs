@@ -8,13 +8,13 @@
 function createRealIOContext(options): IOContext;
 ```
 
-Defined in: venpm/src/cli/context.ts:10
+Defined in: venpm/src/cli/context.ts:13
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `options` | [`GlobalOptions`](../core/types.md#globaloptions) & \{ `quiet?`: `boolean`; `yes?`: `boolean`; \} |
+| `options` | [`GlobalOptions`](../core/types.md#globaloptions) |
 
 #### Returns
 

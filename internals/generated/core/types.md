@@ -71,7 +71,7 @@ Absolute path to the Vencord source checkout, or null if not yet configured
 
 ### CreateOptions
 
-Defined in: venpm/src/core/types.ts:206
+Defined in: venpm/src/core/types.ts:201
 
 #### Extends
 
@@ -85,7 +85,7 @@ Defined in: venpm/src/core/types.ts:206
 optional config?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:191
+Defined in: venpm/src/core/types.ts:183
 
 ###### Inherited from
 
@@ -97,7 +97,7 @@ Defined in: venpm/src/core/types.ts:191
 optional force?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:208
+Defined in: venpm/src/core/types.ts:203
 
 ##### json?
 
@@ -105,11 +105,23 @@ Defined in: venpm/src/core/types.ts:208
 optional json?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:193
+Defined in: venpm/src/core/types.ts:187
 
 ###### Inherited from
 
 [`GlobalOptions`](#globaloptions).[`json`](#json-1)
+
+##### jsonStream?
+
+```ts
+optional jsonStream?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:188
+
+###### Inherited from
+
+[`GlobalOptions`](#globaloptions).[`jsonStream`](#jsonstream-1)
 
 ##### output?
 
@@ -117,7 +129,19 @@ Defined in: venpm/src/core/types.ts:193
 optional output?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:207
+Defined in: venpm/src/core/types.ts:202
+
+##### quiet?
+
+```ts
+optional quiet?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:185
+
+###### Inherited from
+
+[`GlobalOptions`](#globaloptions).[`quiet`](#quiet-1)
 
 ##### verbose?
 
@@ -125,11 +149,23 @@ Defined in: venpm/src/core/types.ts:207
 optional verbose?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:192
+Defined in: venpm/src/core/types.ts:184
 
 ###### Inherited from
 
 [`GlobalOptions`](#globaloptions).[`verbose`](#verbose-1)
+
+##### yes?
+
+```ts
+optional yes?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:186
+
+###### Inherited from
+
+[`GlobalOptions`](#globaloptions).[`yes`](#yes-1)
 
 ***
 
@@ -472,7 +508,7 @@ Defined in: venpm/src/core/types.ts:152
 
 ### GlobalOptions
 
-Defined in: venpm/src/core/types.ts:190
+Defined in: venpm/src/core/types.ts:182
 
 #### Extended by
 
@@ -489,7 +525,7 @@ Defined in: venpm/src/core/types.ts:190
 optional config?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:191
+Defined in: venpm/src/core/types.ts:183
 
 ##### json?
 
@@ -497,7 +533,23 @@ Defined in: venpm/src/core/types.ts:191
 optional json?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:193
+Defined in: venpm/src/core/types.ts:187
+
+##### jsonStream?
+
+```ts
+optional jsonStream?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:188
+
+##### quiet?
+
+```ts
+optional quiet?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:185
 
 ##### verbose?
 
@@ -505,7 +557,15 @@ Defined in: venpm/src/core/types.ts:193
 optional verbose?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:192
+Defined in: venpm/src/core/types.ts:184
+
+##### yes?
+
+```ts
+optional yes?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:186
 
 ***
 
@@ -647,7 +707,7 @@ Defined in: venpm/src/core/types.ts:80
 
 ### InstallOptions
 
-Defined in: venpm/src/core/types.ts:196
+Defined in: venpm/src/core/types.ts:191
 
 #### Extends
 
@@ -661,7 +721,7 @@ Defined in: venpm/src/core/types.ts:196
 optional config?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:191
+Defined in: venpm/src/core/types.ts:183
 
 ###### Inherited from
 
@@ -673,7 +733,7 @@ Defined in: venpm/src/core/types.ts:191
 optional from?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:198
+Defined in: venpm/src/core/types.ts:193
 
 ##### git?
 
@@ -681,7 +741,7 @@ Defined in: venpm/src/core/types.ts:198
 optional git?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:200
+Defined in: venpm/src/core/types.ts:195
 
 ##### json?
 
@@ -689,11 +749,23 @@ Defined in: venpm/src/core/types.ts:200
 optional json?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:193
+Defined in: venpm/src/core/types.ts:187
 
 ###### Inherited from
 
 [`GlobalOptions`](#globaloptions).[`json`](#json-1)
+
+##### jsonStream?
+
+```ts
+optional jsonStream?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:188
+
+###### Inherited from
+
+[`GlobalOptions`](#globaloptions).[`jsonStream`](#jsonstream-1)
 
 ##### local?
 
@@ -701,7 +773,7 @@ Defined in: venpm/src/core/types.ts:193
 optional local?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:199
+Defined in: venpm/src/core/types.ts:194
 
 ##### noBuild?
 
@@ -709,7 +781,19 @@ Defined in: venpm/src/core/types.ts:199
 optional noBuild?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:202
+Defined in: venpm/src/core/types.ts:197
+
+##### quiet?
+
+```ts
+optional quiet?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:185
+
+###### Inherited from
+
+[`GlobalOptions`](#globaloptions).[`quiet`](#quiet-1)
 
 ##### rebuild?
 
@@ -717,7 +801,7 @@ Defined in: venpm/src/core/types.ts:202
 optional rebuild?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:203
+Defined in: venpm/src/core/types.ts:198
 
 ##### tarball?
 
@@ -725,7 +809,7 @@ Defined in: venpm/src/core/types.ts:203
 optional tarball?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:201
+Defined in: venpm/src/core/types.ts:196
 
 ##### verbose?
 
@@ -733,7 +817,7 @@ Defined in: venpm/src/core/types.ts:201
 optional verbose?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:192
+Defined in: venpm/src/core/types.ts:184
 
 ###### Inherited from
 
@@ -745,7 +829,19 @@ Defined in: venpm/src/core/types.ts:192
 optional version?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:197
+Defined in: venpm/src/core/types.ts:192
+
+##### yes?
+
+```ts
+optional yes?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:186
+
+###### Inherited from
+
+[`GlobalOptions`](#globaloptions).[`yes`](#yes-1)
 
 ***
 
@@ -855,7 +951,7 @@ Version metadata from the index (git_tag, tarball URL)
 
 ### IOContext
 
-Defined in: venpm/src/core/types.ts:179
+Defined in: venpm/src/core/types.ts:171
 
 #### Properties
 
@@ -865,7 +961,7 @@ Defined in: venpm/src/core/types.ts:179
 fs: FileSystem;
 ```
 
-Defined in: venpm/src/core/types.ts:180
+Defined in: venpm/src/core/types.ts:172
 
 ##### git
 
@@ -873,7 +969,7 @@ Defined in: venpm/src/core/types.ts:180
 git: GitClient;
 ```
 
-Defined in: venpm/src/core/types.ts:182
+Defined in: venpm/src/core/types.ts:174
 
 ##### http
 
@@ -881,15 +977,7 @@ Defined in: venpm/src/core/types.ts:182
 http: HttpClient;
 ```
 
-Defined in: venpm/src/core/types.ts:181
-
-##### logger
-
-```ts
-logger: Logger;
-```
-
-Defined in: venpm/src/core/types.ts:185
+Defined in: venpm/src/core/types.ts:173
 
 ##### prompter
 
@@ -897,7 +985,15 @@ Defined in: venpm/src/core/types.ts:185
 prompter: Prompter;
 ```
 
-Defined in: venpm/src/core/types.ts:184
+Defined in: venpm/src/core/types.ts:176
+
+##### renderer
+
+```ts
+renderer: Renderer;
+```
+
+Defined in: venpm/src/core/types.ts:177
 
 ##### shell
 
@@ -905,7 +1001,7 @@ Defined in: venpm/src/core/types.ts:184
 shell: ShellRunner;
 ```
 
-Defined in: venpm/src/core/types.ts:183
+Defined in: venpm/src/core/types.ts:175
 
 ***
 
@@ -922,104 +1018,6 @@ installed: Record<string, InstalledPlugin>;
 ```
 
 Defined in: venpm/src/core/types.ts:92
-
-***
-
-### Logger
-
-Defined in: venpm/src/core/types.ts:171
-
-#### Methods
-
-##### error()
-
-```ts
-error(message): void;
-```
-
-Defined in: venpm/src/core/types.ts:174
-
-###### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `message` | `string` |
-
-###### Returns
-
-`void`
-
-##### info()
-
-```ts
-info(message): void;
-```
-
-Defined in: venpm/src/core/types.ts:172
-
-###### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `message` | `string` |
-
-###### Returns
-
-`void`
-
-##### success()
-
-```ts
-success(message): void;
-```
-
-Defined in: venpm/src/core/types.ts:176
-
-###### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `message` | `string` |
-
-###### Returns
-
-`void`
-
-##### verbose()
-
-```ts
-verbose(message): void;
-```
-
-Defined in: venpm/src/core/types.ts:175
-
-###### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `message` | `string` |
-
-###### Returns
-
-`void`
-
-##### warn()
-
-```ts
-warn(message): void;
-```
-
-Defined in: venpm/src/core/types.ts:173
-
-###### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `message` | `string` |
-
-###### Returns
-
-`void`
 
 ***
 
@@ -1296,6 +1294,257 @@ Defined in: venpm/src/core/types.ts:168
 
 ***
 
+### Renderer
+
+Defined in: venpm/src/core/types.ts:215
+
+#### Methods
+
+##### dim()
+
+```ts
+dim(message): void;
+```
+
+Defined in: venpm/src/core/types.ts:222
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `message` | `string` |
+
+###### Returns
+
+`void`
+
+##### error()
+
+```ts
+error(info): void;
+```
+
+Defined in: venpm/src/core/types.ts:220
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `info` | [`ErrorInfo`](errors.md#errorinfo) |
+
+###### Returns
+
+`void`
+
+##### finish()
+
+```ts
+finish(
+   success, 
+   data?, 
+   warnings?): void;
+```
+
+Defined in: venpm/src/core/types.ts:233
+
+Called when the command is done — renderers that buffer (JsonRenderer) flush here.
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `success` | `boolean` |
+| `data?` | `unknown` |
+| `warnings?` | `string`[] |
+
+###### Returns
+
+`void`
+
+##### heading()
+
+```ts
+heading(message): void;
+```
+
+Defined in: venpm/src/core/types.ts:217
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `message` | `string` |
+
+###### Returns
+
+`void`
+
+##### keyValue()
+
+```ts
+keyValue(pairs): void;
+```
+
+Defined in: venpm/src/core/types.ts:225
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `pairs` | \[`string`, `string`\][] |
+
+###### Returns
+
+`void`
+
+##### list()
+
+```ts
+list(items): void;
+```
+
+Defined in: venpm/src/core/types.ts:226
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `items` | `string`[] |
+
+###### Returns
+
+`void`
+
+##### progress()
+
+```ts
+progress(id, message): ProgressHandle;
+```
+
+Defined in: venpm/src/core/types.ts:228
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `id` | `string` |
+| `message` | `string` |
+
+###### Returns
+
+[`ProgressHandle`](progress.md#progresshandle)
+
+##### success()
+
+```ts
+success(message): void;
+```
+
+Defined in: venpm/src/core/types.ts:218
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `message` | `string` |
+
+###### Returns
+
+`void`
+
+##### table()
+
+```ts
+table(headers, rows): void;
+```
+
+Defined in: venpm/src/core/types.ts:224
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `headers` | `string`[] |
+| `rows` | `string`[][] |
+
+###### Returns
+
+`void`
+
+##### text()
+
+```ts
+text(message): void;
+```
+
+Defined in: venpm/src/core/types.ts:216
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `message` | `string` |
+
+###### Returns
+
+`void`
+
+##### verbose()
+
+```ts
+verbose(message): void;
+```
+
+Defined in: venpm/src/core/types.ts:221
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `message` | `string` |
+
+###### Returns
+
+`void`
+
+##### warn()
+
+```ts
+warn(message): void;
+```
+
+Defined in: venpm/src/core/types.ts:219
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `message` | `string` |
+
+###### Returns
+
+`void`
+
+##### write()
+
+```ts
+write(data): void;
+```
+
+Defined in: venpm/src/core/types.ts:230
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `data` | `string` |
+
+###### Returns
+
+`void`
+
+***
+
 ### RepoEntry
 
 Defined in: venpm/src/core/types.ts:56
@@ -1389,7 +1638,7 @@ Defined in: venpm/src/core/types.ts:162
 
 ### ValidateOptions
 
-Defined in: venpm/src/core/types.ts:211
+Defined in: venpm/src/core/types.ts:206
 
 #### Extends
 
@@ -1403,7 +1652,7 @@ Defined in: venpm/src/core/types.ts:211
 optional config?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:191
+Defined in: venpm/src/core/types.ts:183
 
 ###### Inherited from
 
@@ -1415,11 +1664,35 @@ Defined in: venpm/src/core/types.ts:191
 optional json?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:193
+Defined in: venpm/src/core/types.ts:187
 
 ###### Inherited from
 
 [`GlobalOptions`](#globaloptions).[`json`](#json-1)
+
+##### jsonStream?
+
+```ts
+optional jsonStream?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:188
+
+###### Inherited from
+
+[`GlobalOptions`](#globaloptions).[`jsonStream`](#jsonstream-1)
+
+##### quiet?
+
+```ts
+optional quiet?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:185
+
+###### Inherited from
+
+[`GlobalOptions`](#globaloptions).[`quiet`](#quiet-1)
 
 ##### strict?
 
@@ -1427,7 +1700,7 @@ Defined in: venpm/src/core/types.ts:193
 optional strict?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:212
+Defined in: venpm/src/core/types.ts:207
 
 ##### verbose?
 
@@ -1435,11 +1708,23 @@ Defined in: venpm/src/core/types.ts:212
 optional verbose?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:192
+Defined in: venpm/src/core/types.ts:184
 
 ###### Inherited from
 
 [`GlobalOptions`](#globaloptions).[`verbose`](#verbose-1)
+
+##### yes?
+
+```ts
+optional yes?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:186
+
+###### Inherited from
+
+[`GlobalOptions`](#globaloptions).[`yes`](#yes-1)
 
 ***
 
@@ -1498,3 +1783,56 @@ type RestartMode = "ask" | "always" | "never";
 Defined in: venpm/src/core/types.ts:54
 
 How venpm handles restarting Discord
+
+***
+
+### StreamEvent
+
+```ts
+type StreamEvent = 
+  | {
+  id: string;
+  message: string;
+  type: "progress";
+}
+  | {
+  id: string;
+  message: string;
+  status: "done" | "fail";
+  type: "progress";
+}
+  | {
+  code?: string;
+  message: string;
+  type: "warning";
+}
+  | {
+  message: string;
+  type: "log";
+}
+  | {
+  data: unknown;
+  success: true;
+  type: "result";
+  warnings?: string[];
+}
+  | {
+  error: ErrorInfo;
+  success: false;
+  type: "error";
+};
+```
+
+Defined in: venpm/src/core/types.ts:238
+
+## References
+
+### ErrorInfo
+
+Re-exports [ErrorInfo](errors.md#errorinfo)
+
+***
+
+### ProgressHandle
+
+Re-exports [ProgressHandle](progress.md#progresshandle)

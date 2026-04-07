@@ -1,14 +1,14 @@
-# cli/doctor
+# cli/help
 
 ## Functions
 
-### registerDoctorCommand()
+### configureHelp()
 
 ```ts
-function registerDoctorCommand(program): void;
+function configureHelp(program): void;
 ```
 
-Defined in: venpm/src/cli/doctor.ts:17
+Defined in: venpm/src/cli/help.ts:4
 
 #### Parameters
 

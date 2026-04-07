@@ -11,7 +11,7 @@ function executeUpdate(
 options): Promise<void>;
 ```
 
-Defined in: venpm/src/cli/update.ts:14
+Defined in: venpm/src/cli/update.ts:15
 
 #### Parameters
 
@@ -33,7 +33,7 @@ Defined in: venpm/src/cli/update.ts:14
 function registerUpdateCommand(program): void;
 ```
 
-Defined in: venpm/src/cli/update.ts:166
+Defined in: venpm/src/cli/update.ts:165
 
 #### Parameters
 
