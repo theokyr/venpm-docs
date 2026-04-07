@@ -35,5 +35,3 @@ features:
     details: Every command supports --json for scripting and automation. Structured output, machine-readable errors.
     icon: "🔌"
 ---
-
-<InstallCommand />

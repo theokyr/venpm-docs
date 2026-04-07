@@ -151,6 +151,83 @@
     border-color: #ef4444;
 }
 
+/* ── Hero: widescreen fill + install command placement ── */
+.VPHero {
+    min-height: calc(100vh - var(--vp-nav-height, 64px));
+    display: flex;
+    align-items: center;
+}
+
+.VPHero .container {
+    max-width: 1280px;
+}
+
+/* Bigger hero image on desktop */
+@media (min-width: 960px) {
+    .VPHero .image-container {
+        width: 420px !important;
+        height: 420px !important;
+        transform: translate(-32px, -32px);
+    }
+
+    .VPHero :deep(.image-src) {
+        max-width: 360px !important;
+        max-height: 360px !important;
+    }
+
+    .VPHero .image-bg {
+        width: 400px !important;
+        height: 400px !important;
+    }
+}
+
+/* Even bigger on wide screens */
+@media (min-width: 1280px) {
+    .VPHero .image-container {
+        width: 480px !important;
+        height: 480px !important;
+    }
+
+    .VPHero :deep(.image-src) {
+        max-width: 400px !important;
+        max-height: 400px !important;
+    }
+
+    .VPHero .image-bg {
+        width: 440px !important;
+        height: 440px !important;
+    }
+}
+
+/* InstallCommand inside hero actions area */
+.VPHero .install-section {
+    padding: 24px 0 0;
+    justify-content: flex-start;
+}
+
+.VPHero .install-container {
+    text-align: left;
+}
+
+.VPHero .install-label {
+    text-align: left;
+}
+
+/* On mobile (stacked hero), center everything */
+@media (max-width: 959px) {
+    .VPHero .install-section {
+        justify-content: center;
+    }
+
+    .VPHero .install-container {
+        text-align: center;
+    }
+
+    .VPHero .install-label {
+        text-align: center;
+    }
+}
+
 /* ── Feature cards on home ── */
 .dark .VPFeature {
     background-color: #141c1a;

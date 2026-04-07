@@ -44,7 +44,7 @@ Error.constructor
 optional cause?: unknown;
 ```
 
-Defined in: venpm-docs/node\_modules/typescript/lib/lib.es2022.error.d.ts:24
+Defined in: venpm-docs-showcase/node\_modules/typescript/lib/lib.es2022.error.d.ts:24
 
 ###### Inherited from
 
@@ -58,7 +58,7 @@ Error.cause
 message: string;
 ```
 
-Defined in: venpm-docs/node\_modules/typescript/lib/lib.es5.d.ts:1075
+Defined in: venpm-docs-showcase/node\_modules/typescript/lib/lib.es5.d.ts:1075
 
 ###### Inherited from
 
@@ -72,7 +72,7 @@ Error.message
 name: string;
 ```
 
-Defined in: venpm-docs/node\_modules/typescript/lib/lib.es5.d.ts:1074
+Defined in: venpm-docs-showcase/node\_modules/typescript/lib/lib.es5.d.ts:1074
 
 ###### Inherited from
 
@@ -86,7 +86,7 @@ Error.name
 optional stack?: string;
 ```
 
-Defined in: venpm-docs/node\_modules/typescript/lib/lib.es5.d.ts:1076
+Defined in: venpm-docs-showcase/node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 ###### Inherited from
 

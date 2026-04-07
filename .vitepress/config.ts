@@ -6,6 +6,7 @@ export default defineConfig({
     description: "The package manager for Vencord plugins. Install, update, and manage userplugins from the command line.",
     appearance: 'dark',
     lastUpdated: true,
+    ignoreDeadLinks: [/\/LICENSE/],
 
     sitemap: {
         hostname: "https://venpm.dev",
@@ -92,6 +93,7 @@ export default defineConfig({
 
         nav: [
             { text: "Guide", link: "/guide/getting-started" },
+            { text: "Plugins", link: "/plugins/kamaras" },
             { text: "Author Guide", link: "/author/your-first-plugin" },
             { text: "API Reference", link: "/api/cli" },
             { text: "Internals", link: "/internals/architecture" },
