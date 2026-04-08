@@ -121,7 +121,7 @@ venpm validate plugins.json --strict
 venpm ships a **GitHub Action** for automated index publishing:
 
 ```yaml
-- uses: theokyr/venpm/actions/publish-index@master
+- uses: theokyr/venpm/actions/publish-index@main
 ```
 
 See the [Author Guide](https://venpm.dev/author/your-first-plugin) for the full walkthrough.
@@ -166,14 +166,14 @@ node scripts/setup.mjs    # install, build, link globally
 
 ```bash
 npm run dev                # watch mode (live global updates)
-npm test                   # 240 tests
+npm test                   # 389 tests
 npm run lint               # type check (tsc --noEmit)
 npm run build              # one-shot compile
 ```
 
 ### Test Suite
 
-240 tests across three layers:
+389 tests across three layers:
 
 | Layer | What it tests |
 |-------|---------------|
@@ -198,6 +198,16 @@ Files: `config.json`, `venpm-lock.json`, `index-cache.json`
 ## Documentation
 
 Full documentation at **[venpm.dev](https://venpm.dev)** — guides, author documentation, API reference, and TypeDoc-generated internals.
+
+## Disclaimer
+
+venpm is not affiliated with, endorsed by, or sponsored by Discord Inc. or the Vencord project. "Discord" is a trademark of Discord Inc., mentioned solely for descriptive purposes.
+
+Client modifications — including Vencord and any plugins installed through venpm — are against [Discord's Terms of Service](https://discord.com/terms). While no widespread bans for client mod usage are known, Discord may take action against accounts at any time. **You use client modifications entirely at your own risk.**
+
+venpm does not review or audit third-party plugins. You are responsible for evaluating the trustworthiness of any plugin repository and plugin you install. The authors are not responsible for any damage to your Discord account, computer, or data.
+
+This software is provided "as is", without warranty of any kind. See [LICENSE](_media/LICENSE) for details.
 
 ## License
 

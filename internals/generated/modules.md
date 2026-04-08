@@ -29,6 +29,7 @@
 - [core/json](core/json.md)
 - [core/json-renderer](core/json-renderer.md)
 - [core/lockfile](core/lockfile.md)
+- [core/log](core/log.md)
 - [core/paths](core/paths.md)
 - [core/progress](core/progress.md)
 - [core/prompt](core/prompt.md)

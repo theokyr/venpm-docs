@@ -20,7 +20,7 @@ api/                     # API reference (CLI commands, JSON output, schemas)
 internals/               # Architecture, testing, contributing
 internals/generated/     # Auto-generated TypeDoc module reference (do not hand-edit)
 plugins/kamaras.md       # Plugin showcase page (uses showcase layout via frontmatter)
-typedoc.json             # TypeDoc config — points at ~/src/venpm/src/
+typedoc.json             # TypeDoc config — entry points from ../venpm/src/
 tsconfig.typedoc.json    # TypeScript config for TypeDoc resolution
 public/                  # Static assets (logo, favicon)
 ```
@@ -45,7 +45,7 @@ npm run preview          # Preview production build
 npm run typedoc          # Regenerate internals/generated/ from venpm source
 ```
 
-TypeDoc reads from `~/src/venpm/src/` — the venpm repo must be present locally.
+TypeDoc reads from `../venpm/src/` (relative to repo root) — the venpm repo must be checked out at `../venpm/`.
 
 ## Dependencies
 
@@ -58,7 +58,7 @@ TypeDoc reads from `~/src/venpm/src/` — the venpm repo must be present locally
 - Hand-written pages in `guide/`, `author/`, `api/`, `internals/`, `plugins/` (top-level .md files)
 - Auto-generated pages in `internals/generated/` — regenerate with `npm run typedoc`, do not hand-edit
 - Brand palette: Carbon Forest Amber (`--vp-c-brand-1: #f97316`), dark-mode native, distinct from Vencord's purple
-- 50+ pages total across all sections
+- ~60 pages total across all sections (count varies as TypeDoc modules change)
 - Demo animations must match real plugin CSS values exactly (150ms ease, 250ms ease-out, etc.) — do not embellish
 
 ## Deployment
@@ -80,4 +80,4 @@ Live at **https://venpm.dev** via GitHub Pages. Deploys on push to `main`.
 ## Git
 
 - **Origin:** `https://github.com/theokyr/venpm-docs.git`
-- **Branch:** `master`
+- **Branch:** `main`

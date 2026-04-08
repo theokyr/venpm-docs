@@ -167,6 +167,7 @@ export default defineConfig({
                                 { text: "json", link: "/internals/generated/core/json" },
                                 { text: "json-renderer", link: "/internals/generated/core/json-renderer" },
                                 { text: "lockfile", link: "/internals/generated/core/lockfile" },
+                                { text: "log", link: "/internals/generated/core/log" },
                                 { text: "paths", link: "/internals/generated/core/paths" },
                                 { text: "progress", link: "/internals/generated/core/progress" },
                                 { text: "prompt", link: "/internals/generated/core/prompt" },
