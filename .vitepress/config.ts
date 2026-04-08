@@ -216,5 +216,9 @@ export default defineConfig({
             pattern: "https://github.com/theokyr/venpm-docs/edit/main/:path",
             text: "Edit this page",
         },
+
+        footer: {
+            message: '<a href="/disclaimer">Disclaimer</a> — Not affiliated with Discord Inc. or Vencord. Client mods are against Discord\'s ToS. Use at your own risk.',
+        },
     },
 });

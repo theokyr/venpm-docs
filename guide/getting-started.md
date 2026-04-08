@@ -1,5 +1,9 @@
 # Getting Started
 
+::: warning Disclaimer
+Client modifications — including Vencord and plugins installed through venpm — are against [Discord's Terms of Service](https://discord.com/terms). While no widespread bans for client mod usage are known, you use them at your own risk. venpm is not affiliated with Discord Inc. or Vencord. See the full [Disclaimer](/disclaimer).
+:::
+
 ## Install
 
 Install venpm globally:
