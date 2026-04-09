@@ -13,7 +13,7 @@
   <a href="https://www.npmjs.com/package/@kamaras/venpm"><img src="https://img.shields.io/npm/v/@kamaras/venpm?color=f97316&label=npm" alt="npm version" /></a>
   <a href="https://github.com/theokyr/venpm/actions"><img src="https://img.shields.io/github/actions/workflow/status/theokyr/venpm/ci.yml?label=tests&color=34d399" alt="CI" /></a>
   <a href="https://venpm.dev"><img src="https://img.shields.io/badge/docs-venpm.dev-f97316" alt="docs" /></a>
-  <a href="https://github.com/theokyr/venpm/blob/master/LICENSE"><img src="https://img.shields.io/github/license/theokyr/venpm?color=94a3b8" alt="license" /></a>
+  <a href="https://github.com/theokyr/venpm/blob/main/LICENSE"><img src="https://img.shields.io/github/license/theokyr/venpm?color=94a3b8" alt="license" /></a>
   <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D18-94a3b8" alt="node >= 18" /></a>
 </p>
 

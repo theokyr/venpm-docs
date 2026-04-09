@@ -19,7 +19,7 @@ After setup, you have a working `venpm` command that points at your local build.
 
 ```bash
 npm run dev          # watch mode — auto-rebuild on source changes
-npm test             # run all 224 tests
+npm test             # run the full test suite
 npm run lint         # type-check (tsc --noEmit)
 npm run build        # one-shot compile
 ```

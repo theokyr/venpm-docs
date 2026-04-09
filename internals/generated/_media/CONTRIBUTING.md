@@ -119,7 +119,7 @@ If you modify a schema:
 
 ## Submitting Changes
 
-1. **Fork and branch** — create a feature branch from `master`
+1. **Fork and branch** — create a feature branch from `main`
 2. **Make your changes** — follow the conventions above
 3. **Test** — run `npm test` and `npm run lint`
 4. **Commit** — use conventional prefixes: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`

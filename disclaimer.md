@@ -35,4 +35,4 @@ In no event shall the authors or copyright holders of venpm be liable for any cl
 
 ## License
 
-venpm is open-source software released under the [MIT License](https://github.com/theokyr/venpm/blob/master/LICENSE). See the license file for the full legal text.
+venpm is open-source software released under the [MIT License](https://github.com/theokyr/venpm/blob/main/LICENSE). See the license file for the full legal text.
