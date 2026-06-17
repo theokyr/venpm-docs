@@ -34,7 +34,7 @@ venpm doctor
 ✓ Vencord     /home/you/src/Vencord
 ✓ Discord     /usr/bin/discord
 ✓ Repos       1 configured
-✓ venpm       0.1.0
+✓ venpm       0.x.y
 ```
 
 If Vencord was not auto-detected, set the path manually:
@@ -54,7 +54,7 @@ venpm search tabs
 ```
 
 ```
-channelTabs  0.1.0  Quick-access tab bar for channels and DMs  [kamaras-plugins]
+channelTabs  0.5.0  Quick-access tab bar for channels and DMs  [kamaras]
 ```
 
 Install it:

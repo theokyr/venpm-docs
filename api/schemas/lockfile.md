@@ -11,7 +11,7 @@ The lockfile tracks installed plugins. Located at `<config-dir>/venpm-lock.json`
   "installed": {
     "channelTabs": {
       "version": "0.1.0",
-      "repo": "kamaras-plugins",
+      "repo": "kamaras",
       "method": "git",
       "pinned": false,
       "installed_at": "2026-01-15T10:30:00.000Z",

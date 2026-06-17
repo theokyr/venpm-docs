@@ -83,19 +83,19 @@ interface Message {
 
 const allMessages: Record<string, Message[]> = {
     general: [
-        { id: 1, user: "theo", text: "anyone tried the new update yet?", avatarColor: "#5865f2" },
-        { id: 2, user: "nyx", text: "yeah it's pretty solid, the tab animations feel snappy", avatarColor: "#eb459e" },
-        { id: 3, user: "vale", text: "channelTabs is genuinely one of the best plugins", avatarColor: "#ed4245" },
+        { id: 1, user: "user1", text: "anyone tried the new update yet?", avatarColor: "#5865f2" },
+        { id: 2, user: "user2", text: "yeah it's pretty solid, the tab animations feel snappy", avatarColor: "#eb459e" },
+        { id: 3, user: "user3", text: "channelTabs is genuinely one of the best plugins", avatarColor: "#ed4245" },
     ],
     dev: [
-        { id: 1, user: "theo", text: "pushed the context menu patch, needs review", avatarColor: "#5865f2" },
-        { id: 2, user: "nyx", text: "on it, give me 10 mins", avatarColor: "#eb459e" },
-        { id: 3, user: "vale", text: "the CSS order trick for positioning is clever", avatarColor: "#ed4245" },
+        { id: 1, user: "user1", text: "pushed the context menu patch, needs review", avatarColor: "#5865f2" },
+        { id: 2, user: "user2", text: "on it, give me 10 mins", avatarColor: "#eb459e" },
+        { id: 3, user: "user3", text: "the CSS order trick for positioning is clever", avatarColor: "#ed4245" },
     ],
-    theo: [
-        { id: 1, user: "theo", text: "hey, free this weekend?", avatarColor: "#5865f2" },
-        { id: 2, user: "nyx", text: "yeah should be, what's up?", avatarColor: "#eb459e" },
-        { id: 3, user: "theo", text: "thinking of doing a build stream", avatarColor: "#5865f2" },
+    user1: [
+        { id: 1, user: "user1", text: "hey, free this weekend?", avatarColor: "#5865f2" },
+        { id: 2, user: "user2", text: "yeah should be, what's up?", avatarColor: "#eb459e" },
+        { id: 3, user: "user1", text: "thinking of doing a build stream", avatarColor: "#5865f2" },
     ],
     announcements: [
         { id: 1, user: "system", text: "venpm v0.1.0 is out — install any plugin with one command", avatarColor: "#57f287" },
@@ -104,7 +104,7 @@ const allMessages: Record<string, Message[]> = {
     ],
     stream: [
         { id: 1, user: "viewer1", text: "love the vibes tonight", avatarColor: "#fee75c" },
-        { id: 2, user: "theo", text: "thanks! going to tackle the physics engine today", avatarColor: "#5865f2" },
+        { id: 2, user: "user1", text: "thanks! going to tackle the physics engine today", avatarColor: "#5865f2" },
         { id: 3, user: "viewer2", text: "WorldGame-Engine lets gooo", avatarColor: "#eb459e" },
     ],
 };
@@ -115,7 +115,7 @@ let tabCounter = 0;
 const tabs = ref<Tab[]>([
     { id: 1, name: "general", type: "channel" },
     { id: 2, name: "dev", type: "channel" },
-    { id: 3, name: "theo", type: "dm", initials: "TH" },
+    { id: 3, name: "user1", type: "dm", initials: "U1" },
     { id: 4, name: "announcements", type: "channel" },
     { id: 5, name: "stream", type: "dm", initials: "ST" },
 ]);

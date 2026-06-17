@@ -100,11 +100,11 @@ interface Message {
 }
 
 const messages: Message[] = [
-    { id: 1, user: "theo",  color: "#5865f2", text: "Hey everyone, just pushed the new update" },
-    { id: 2, user: "theo",  color: "#5865f2", text: "Let me know if you run into any issues" },
-    { id: 3, user: "alex",  color: "#ed4245", text: "Looks great! Testing now" },
-    { id: 4, user: "sam",   color: "#57f287", text: "The new settings panel is really nice" },
-    { id: 5, user: "sam",   color: "#57f287", text: "One small thing though..." },
+    { id: 1, user: "user1", color: "#5865f2", text: "Hey everyone, just pushed the new update" },
+    { id: 2, user: "user1", color: "#5865f2", text: "Let me know if you run into any issues" },
+    { id: 3, user: "user2", color: "#ed4245", text: "Looks great! Testing now" },
+    { id: 4, user: "user3", color: "#57f287", text: "The new settings panel is really nice" },
+    { id: 5, user: "user3", color: "#57f287", text: "One small thing though..." },
 ];
 
 function isConsecutive(i: number): boolean {

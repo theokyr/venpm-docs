@@ -45,8 +45,8 @@ venpm install <plugin> [options]
 
 ```bash
 venpm install channelTabs
-venpm install channelTabs --version 0.1.0
-venpm install channelTabs --from kamaras-plugins
+venpm install channelTabs --version 0.5.0
+venpm install channelTabs --from kamaras
 venpm install myPlugin --local ./plugins/myPlugin --no-build
 ```
 
@@ -135,8 +135,8 @@ venpm list
   Installed plugins (3):
 
   Name          Version  Method  Repo              Flags
-  channelTabs   0.1.0    git     kamaras-plugins
-  settingsHub   0.1.0    git     kamaras-plugins
+  channelTabs   0.5.0    git     kamaras
+  settingsHub   0.3.4    git     kamaras
   myPlugin      local    local   local             pinned
 ```
 
@@ -325,8 +325,15 @@ Rebuild Vencord and restart Discord.
 ### Usage
 
 ```
-venpm rebuild
+venpm rebuild [options]
 ```
+
+### Options
+
+| Flag | Description |
+|------|-------------|
+| `--restart` | Restart Discord after rebuilding without prompting |
+| `--no-restart` | Skip Discord restart without prompting |
 
 Runs `pnpm build` in the Vencord source tree, copies the output to Discord's load path (`~/.config/Vencord/dist/`), and optionally restarts Discord based on the `discord.restart` config setting.
 
@@ -339,6 +346,100 @@ Runs `pnpm build` in the Vencord source tree, copies the output to Discord's loa
 | `3` | Environment error (Vencord not found, pnpm not found, build failed) |
 
 > See [Error Codes](/api/error-codes) for the full list of structured error codes returned with each error.
+
+---
+
+## venpm inject
+
+Patch Discord to load Vencord natively, without shelling out to Vencord's installer.
+
+### Usage
+
+```
+venpm inject [options]
+```
+
+### Options
+
+| Flag | Description |
+|------|-------------|
+| `-b, --branch <branch>` | Discord branch: `stable` (default), `canary`, or `ptb` |
+| `--restart` | Restart Discord after patching without prompting |
+| `--no-restart` | Skip Discord restart after patching |
+
+### Behavior
+
+On macOS and standard Linux installs, venpm replaces Discord's `app.asar` with a small Vencord loader shim and moves Discord's original asar to `_app.asar`. Restart Discord after injecting for the patch to take effect.
+
+::: warning macOS App Management
+On macOS Sequoia and later, modifying `/Applications/Discord.app/Contents/` requires App Management permission for the terminal running venpm. Enable it in System Settings -> Privacy & Security -> App Management, then run `venpm inject` again.
+:::
+
+### Exit Codes
+
+| Code | Meaning |
+|------|---------|
+| `0` | Patch installed |
+| `1` | Already injected or patch failed |
+| `3` | Discord not found or native inject unsupported |
+
+> See [JSON Output](/api/json-output#venpm-inject) for the structured result shape.
+
+---
+
+## venpm uninject
+
+Remove the native Vencord patch from Discord.
+
+### Usage
+
+```
+venpm uninject [options]
+```
+
+### Options
+
+| Flag | Description |
+|------|-------------|
+| `-b, --branch <branch>` | Discord branch: `stable` (default), `canary`, or `ptb` |
+
+### Behavior
+
+Removes the shim `app.asar` and restores Discord's original `_app.asar` backup. If the target Discord branch is already unpatched, the command succeeds and reports that no work was needed.
+
+### Exit Codes
+
+| Code | Meaning |
+|------|---------|
+| `0` | Patch removed, or target was already unpatched |
+| `1` | Unpatch failed |
+| `3` | Discord not found or native inject unsupported |
+
+> See [JSON Output](/api/json-output#venpm-uninject) for the structured result shape.
+
+---
+
+## venpm kill-discord
+
+Stop running Discord processes.
+
+### Usage
+
+```
+venpm kill-discord
+```
+
+### Behavior
+
+Finds Discord processes using the configured or auto-detected Discord binary and terminates them. Processes that do not exit after the graceful signal are counted under `forced`.
+
+### Exit Codes
+
+| Code | Meaning |
+|------|---------|
+| `0` | Scan complete, even if no Discord processes were running |
+
+> See [JSON Output](/api/json-output#venpm-kill-discord) for the structured result shape.
 
 ---
 

@@ -72,7 +72,7 @@ function saveConfig(
 config): Promise<void>;
 ```
 
-Defined in: venpm/src/core/config.ts:33
+Defined in: venpm/src/core/config.ts:39
 
 #### Parameters
 

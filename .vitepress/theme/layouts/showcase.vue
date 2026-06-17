@@ -32,6 +32,10 @@
                     <p class="showcase-hero-hint">
                         Install any plugin: <code>venpm install &lt;name&gt;</code>
                     </p>
+                    <p v-if="sharedModules.length" class="showcase-shared-modules">
+                        Shared modules installed transitively:
+                        <code v-for="moduleName in sharedModules" :key="moduleName">{{ moduleName }}</code>
+                    </p>
                 </div>
                 <PluginSection
                     v-for="plugin in plugins"
@@ -53,6 +57,7 @@ import PluginSection from "../components/showcase/PluginSection.vue";
 
 const { frontmatter } = useData();
 const plugins = frontmatter.value.plugins ?? [];
+const sharedModules = frontmatter.value.sharedModules ?? [];
 
 const activePlugin = ref<string>(plugins[0]?.name ?? "");
 
@@ -217,6 +222,20 @@ onUnmounted(() => {
 }
 
 .showcase-hero-hint code {
+    color: var(--vp-body, #94a3b8);
+    background: var(--vp-surface, #141c1a);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.showcase-shared-modules {
+    margin: 12px 0 0;
+    color: var(--vp-muted, #4a5c56);
+    font-size: 13px;
+}
+
+.showcase-shared-modules code {
+    margin-left: 6px;
     color: var(--vp-body, #94a3b8);
     background: var(--vp-surface, #141c1a);
     padding: 2px 6px;

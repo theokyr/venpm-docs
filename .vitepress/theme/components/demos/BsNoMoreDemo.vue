@@ -103,16 +103,16 @@ import DiscordFrame from "../showcase/DiscordFrame.vue";
 const clean = ref(false);
 
 const dms = [
-    { name: "theo",       initials: "TH", color: "#5865f2" },
-    { name: "alex",       initials: "AL", color: "#ed4245" },
-    { name: "stream-bot", initials: "SB", color: "#57f287" },
-    { name: "sam",        initials: "SA", color: "#fee75c" },
+    { name: "user1", initials: "U1", color: "#5865f2" },
+    { name: "user2", initials: "U2", color: "#ed4245" },
+    { name: "bot",   initials: "BT", color: "#57f287" },
+    { name: "user3", initials: "U3", color: "#fee75c" },
 ];
 
 const messages = [
-    { id: 1, user: "theo",       color: "#5865f2", text: "hey, you free for a call?" },
-    { id: 2, user: "alex",       color: "#ed4245", text: "yeah gimme 5 mins" },
-    { id: 3, user: "stream-bot", color: "#57f287", text: "stream goes live in 10 minutes" },
+    { id: 1, user: "user1", color: "#5865f2", text: "hey, you free for a call?" },
+    { id: 2, user: "user2", color: "#ed4245", text: "yeah gimme 5 mins" },
+    { id: 3, user: "bot",   color: "#57f287", text: "stream goes live in 10 minutes" },
 ];
 </script>
 

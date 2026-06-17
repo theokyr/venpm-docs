@@ -23,7 +23,7 @@ venpm config set vencord.path /home/you/src/Vencord
 
 ## Repos
 
-venpm ships with one default repo. Add more:
+venpm ships with one default repo named `kamaras`. Add more:
 
 ```bash
 venpm repo add https://example.com/plugins.json
@@ -33,6 +33,11 @@ venpm repo remove my-plugins
 ```
 
 The URL must point to a JSON file conforming to the [venpm plugin index schema](/api/schemas/plugins).
+Use the repo name with `--from` when two repositories publish the same plugin name:
+
+```bash
+venpm install channelTabs --from kamaras
+```
 
 ## Rebuild Modes
 

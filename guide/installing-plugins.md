@@ -34,10 +34,10 @@ This resolves the plugin from your configured repos, fetches it (via git clone o
 
 ```bash
 # Install from a specific repo
-venpm install channelTabs --from kamaras-plugins
+venpm install channelTabs --from kamaras
 
 # Pin to a version
-venpm install channelTabs --version 0.1.0
+venpm install channelTabs --version 0.5.0
 
 # Local development — symlink, don't fetch
 venpm install myPlugin --local ./plugins/myPlugin
@@ -59,8 +59,8 @@ venpm list
 ```
 
 ```
-channelTabs@0.1.0       [kamaras-plugins] (git)
-settingsHub@0.1.0       [kamaras-plugins] (git)
+channelTabs@0.5.0       [kamaras] (git)
+settingsHub@0.3.4       [kamaras] (git)
 myPlugin@local          [local] (local) pinned
 ```
 

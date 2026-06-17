@@ -33,7 +33,7 @@ Defined in: venpm/src/cli/install.ts:19
 function registerInstallCommand(program): void;
 ```
 
-Defined in: venpm/src/cli/install.ts:242
+Defined in: venpm/src/cli/install.ts:241
 
 #### Parameters
 

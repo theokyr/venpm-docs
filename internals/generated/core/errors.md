@@ -56,7 +56,7 @@ Defined in: venpm/src/core/errors.ts:4
 type ErrorCodeValue = typeof ErrorCode[keyof typeof ErrorCode];
 ```
 
-Defined in: venpm/src/core/errors.ts:25
+Defined in: venpm/src/core/errors.ts:29
 
 ## Variables
 
@@ -64,11 +64,15 @@ Defined in: venpm/src/core/errors.ts:25
 
 ```ts
 const ErrorCode: {
+  ALREADY_INJECTED: "ALREADY_INJECTED";
   BUILD_FAILED: "BUILD_FAILED";
   CIRCULAR_DEPENDENCY: "CIRCULAR_DEPENDENCY";
   DISCORD_NOT_FOUND: "DISCORD_NOT_FOUND";
   GIT_NOT_AVAILABLE: "GIT_NOT_AVAILABLE";
+  INJECT_FAILED: "INJECT_FAILED";
   NON_INTERACTIVE: "NON_INTERACTIVE";
+  NOT_INJECTED: "NOT_INJECTED";
+  PLATFORM_UNSUPPORTED: "PLATFORM_UNSUPPORTED";
   PLUGIN_AMBIGUOUS: "PLUGIN_AMBIGUOUS";
   PLUGIN_NOT_FOUND: "PLUGIN_NOT_FOUND";
   PLUGIN_NOT_INSTALLED: "PLUGIN_NOT_INSTALLED";
@@ -83,6 +87,12 @@ const ErrorCode: {
 Defined in: venpm/src/core/errors.ts:9
 
 #### Type Declaration
+
+##### ALREADY\_INJECTED
+
+```ts
+readonly ALREADY_INJECTED: "ALREADY_INJECTED" = "ALREADY_INJECTED";
+```
 
 ##### BUILD\_FAILED
 
@@ -108,10 +118,28 @@ readonly DISCORD_NOT_FOUND: "DISCORD_NOT_FOUND" = "DISCORD_NOT_FOUND";
 readonly GIT_NOT_AVAILABLE: "GIT_NOT_AVAILABLE" = "GIT_NOT_AVAILABLE";
 ```
 
+##### INJECT\_FAILED
+
+```ts
+readonly INJECT_FAILED: "INJECT_FAILED" = "INJECT_FAILED";
+```
+
 ##### NON\_INTERACTIVE
 
 ```ts
 readonly NON_INTERACTIVE: "NON_INTERACTIVE" = "NON_INTERACTIVE";
+```
+
+##### NOT\_INJECTED
+
+```ts
+readonly NOT_INJECTED: "NOT_INJECTED" = "NOT_INJECTED";
+```
+
+##### PLATFORM\_UNSUPPORTED
+
+```ts
+readonly PLATFORM_UNSUPPORTED: "PLATFORM_UNSUPPORTED" = "PLATFORM_UNSUPPORTED";
 ```
 
 ##### PLUGIN\_AMBIGUOUS
@@ -175,7 +203,7 @@ const ExitCode: {
 };
 ```
 
-Defined in: venpm/src/core/errors.ts:43
+Defined in: venpm/src/core/errors.ts:51
 
 #### Type Declaration
 
@@ -211,7 +239,7 @@ readonly USAGE_ERROR: 2 = 2;
 function exitCodeForError(code): number;
 ```
 
-Defined in: venpm/src/core/errors.ts:50
+Defined in: venpm/src/core/errors.ts:58
 
 #### Parameters
 
@@ -234,7 +262,7 @@ function makeError(
    options?): ErrorInfo;
 ```
 
-Defined in: venpm/src/core/errors.ts:63
+Defined in: venpm/src/core/errors.ts:72
 
 #### Parameters
 

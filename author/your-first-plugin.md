@@ -431,4 +431,4 @@ That's it — the full cycle from scaffolding to published plugin.
 - [Plugin Index Format](/author/plugin-index) — all fields, dependencies, version history
 - [Scaffolding](/author/scaffolding) — `venpm create` options in detail
 - [CI & Publishing](/author/ci-publishing) — GitHub Actions workflow, validation, release automation
-- [CLI Reference](/api/cli) — all 12 commands documented
+- [CLI Reference](/api/cli) — all commands documented

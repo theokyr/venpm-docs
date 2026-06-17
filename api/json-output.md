@@ -46,7 +46,7 @@ The `error` field is a structured [ErrorInfo](/api/error-codes) object with:
 In v0.1.x, the `error` field was a plain string. In v0.2.0+, it is a structured `ErrorInfo` object. Update any parsing code that does `envelope.error` as a string — use `envelope.error.message` instead.
 :::
 
-## `--json-stream` — NDJSON Event Stream
+## `--json-stream` — NDJSON Event Stream {#ndjson-streaming}
 
 Pass `--json-stream` for newline-delimited JSON events as they happen. Each line is a valid JSON object. Implies `--yes`.
 
@@ -70,10 +70,10 @@ Every stream ends with exactly one `result` or `error` event. The final event's 
 
 ```json
 {"type":"progress","id":"fetch-indexes","message":"Fetching indexes..."}
-{"type":"progress","id":"fetch-indexes","status":"done","message":"1 repo, 12 plugins"}
+{"type":"progress","id":"fetch-indexes","status":"done","message":"1 repo, 13 plugins"}
 {"type":"progress","id":"install-channelTabs","message":"Cloning channelTabs..."}
 {"type":"progress","id":"install-channelTabs","status":"done","message":"channelTabs installed"}
-{"type":"result","success":true,"data":{"installed":[{"name":"channelTabs","version":"0.1.0","method":"git"}]}}
+{"type":"result","success":true,"data":{"installed":[{"name":"channelTabs","version":"0.5.0","method":"git"}]}}
 ```
 
 ### Example: Error stream
@@ -92,8 +92,8 @@ Every stream ends with exactly one `result` or `error` event. The final event's 
   "plugins": [
     {
       "name": "channelTabs",
-      "version": "0.1.0",
-      "repo": "kamaras-plugins",
+      "version": "0.5.0",
+      "repo": "kamaras",
       "method": "git",
       "pinned": false
     }
@@ -108,9 +108,9 @@ Every stream ends with exactly one `result` or `error` event. The final event's 
   "results": [
     {
       "name": "channelTabs",
-      "version": "0.1.0",
+      "version": "0.5.0",
       "description": "Quick-access tab bar for channels and DMs",
-      "repo": "kamaras-plugins"
+      "repo": "kamaras"
     }
   ]
 }
@@ -121,15 +121,15 @@ Every stream ends with exactly one `result` or `error` event. The final event's 
 ```json
 {
   "name": "channelTabs",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "description": "Quick-access tab bar",
   "authors": [{ "name": "kamaras", "id": "123456789012345678" }],
-  "repo": "kamaras-plugins",
+  "repo": "kamaras",
   "dependencies": [],
   "optionalDependencies": ["settingsHub"],
-  "versions": ["0.1.0"],
+  "versions": ["0.5.0"],
   "installed": true,
-  "installedVersion": "0.1.0"
+  "installedVersion": "0.5.0"
 }
 ```
 
@@ -138,7 +138,7 @@ Every stream ends with exactly one `result` or `error` event. The final event's 
 ```json
 {
   "installed": [
-    { "name": "channelTabs", "version": "0.1.0", "method": "git" }
+    { "name": "channelTabs", "version": "0.5.0", "method": "git" }
   ]
 }
 ```
@@ -156,7 +156,7 @@ Every stream ends with exactly one `result` or `error` event. The final event's 
 ```json
 {
   "updated": [
-    { "name": "channelTabs", "from": "0.1.0", "to": "0.2.0" }
+    { "name": "channelTabs", "from": "0.4.0", "to": "0.5.0" }
   ],
   "skipped": ["settingsHub"]
 }
@@ -181,7 +181,49 @@ Every stream ends with exactly one `result` or `error` event. The final event's 
   "vencordPath": "/home/you/src/Vencord",
   "discordBinary": "/usr/bin/discord",
   "repos": 1,
-  "venpmVersion": "0.2.0"
+  "venpmVersion": "0.x.y"
+}
+```
+
+### venpm inject
+
+```json
+{
+  "branch": "stable",
+  "appPath": "/Applications/Discord.app",
+  "shimAsar": "/Applications/Discord.app/Contents/Resources/app.asar",
+  "backupPath": "/Applications/Discord.app/Contents/Resources/_app.asar",
+  "restarted": true
+}
+```
+
+### venpm uninject
+
+```json
+{
+  "branch": "stable",
+  "appPath": "/Applications/Discord.app"
+}
+```
+
+If the selected Discord branch is already unpatched, `uninject` succeeds with:
+
+```json
+{
+  "branch": "stable",
+  "injected": false
+}
+```
+
+### venpm kill-discord
+
+```json
+{
+  "found": [
+    { "pid": 12345, "exe": "/usr/bin/discord" }
+  ],
+  "killed": 1,
+  "forced": 0
 }
 ```
 

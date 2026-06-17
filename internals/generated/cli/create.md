@@ -18,7 +18,7 @@ Defined in: venpm/src/cli/create.ts:9
 optional config?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:183
+Defined in: venpm/src/core/types.ts:184
 
 ###### Inherited from
 
@@ -38,7 +38,7 @@ Defined in: venpm/src/cli/create.ts:11
 optional json?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:187
+Defined in: venpm/src/core/types.ts:188
 
 ###### Inherited from
 
@@ -50,7 +50,7 @@ Defined in: venpm/src/core/types.ts:187
 optional jsonStream?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:188
+Defined in: venpm/src/core/types.ts:189
 
 ###### Inherited from
 
@@ -70,7 +70,7 @@ Defined in: venpm/src/cli/create.ts:12
 optional quiet?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:185
+Defined in: venpm/src/core/types.ts:186
 
 ###### Inherited from
 
@@ -90,7 +90,7 @@ Defined in: venpm/src/cli/create.ts:10
 optional verbose?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:184
+Defined in: venpm/src/core/types.ts:185
 
 ###### Inherited from
 
@@ -102,7 +102,7 @@ Defined in: venpm/src/core/types.ts:184
 optional yes?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:186
+Defined in: venpm/src/core/types.ts:187
 
 ###### Inherited from
 
@@ -143,7 +143,7 @@ function executeCreate(
 options): Promise<void>;
 ```
 
-Defined in: venpm/src/cli/create.ts:244
+Defined in: venpm/src/cli/create.ts:245
 
 #### Parameters
 
@@ -199,7 +199,7 @@ $schema contains "venpm". Returns { path, data } if found, null otherwise.
 function registerCreateCommand(program): void;
 ```
 
-Defined in: venpm/src/cli/create.ts:267
+Defined in: venpm/src/cli/create.ts:268
 
 #### Parameters
 

@@ -32,7 +32,7 @@ Defined in: venpm/src/core/schema.ts:16
 function validateConfig(data): ValidationResult;
 ```
 
-Defined in: venpm/src/core/schema.ts:52
+Defined in: venpm/src/core/schema.ts:64
 
 #### Parameters
 
@@ -52,7 +52,7 @@ Defined in: venpm/src/core/schema.ts:52
 function validateIndex(data): ValidationResult;
 ```
 
-Defined in: venpm/src/core/schema.ts:48
+Defined in: venpm/src/core/schema.ts:60
 
 #### Parameters
 
@@ -72,7 +72,7 @@ Defined in: venpm/src/core/schema.ts:48
 function validateLockfile(data): ValidationResult;
 ```
 
-Defined in: venpm/src/core/schema.ts:56
+Defined in: venpm/src/core/schema.ts:68
 
 #### Parameters
 

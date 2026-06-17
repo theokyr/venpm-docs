@@ -15,7 +15,7 @@ The venpm config file stores user preferences. Located at:
 ```json
 {
   "repos": [
-    { "name": "kamaras-plugins", "url": "https://..." }
+    { "name": "kamaras", "url": "https://..." }
   ],
   "vencord": {
     "path": "/home/you/src/Vencord"

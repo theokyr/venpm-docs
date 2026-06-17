@@ -4,7 +4,7 @@
 
 ### BuildAndDeployOptions
 
-Defined in: venpm/src/core/builder.ts:95
+Defined in: venpm/src/core/builder.ts:76
 
 #### Properties
 
@@ -14,7 +14,7 @@ Defined in: venpm/src/core/builder.ts:95
 optional discordBinary?: string;
 ```
 
-Defined in: venpm/src/core/builder.ts:97
+Defined in: venpm/src/core/builder.ts:78
 
 ##### restart?
 
@@ -22,13 +22,13 @@ Defined in: venpm/src/core/builder.ts:97
 optional restart?: boolean;
 ```
 
-Defined in: venpm/src/core/builder.ts:96
+Defined in: venpm/src/core/builder.ts:77
 
 ***
 
 ### DeployResult
 
-Defined in: venpm/src/core/builder.ts:15
+Defined in: venpm/src/core/builder.ts:16
 
 #### Properties
 
@@ -38,7 +38,7 @@ Defined in: venpm/src/core/builder.ts:15
 deployed: boolean;
 ```
 
-Defined in: venpm/src/core/builder.ts:16
+Defined in: venpm/src/core/builder.ts:17
 
 ##### deployPath?
 
@@ -46,7 +46,7 @@ Defined in: venpm/src/core/builder.ts:16
 optional deployPath?: string;
 ```
 
-Defined in: venpm/src/core/builder.ts:17
+Defined in: venpm/src/core/builder.ts:18
 
 ##### restarted
 
@@ -54,7 +54,7 @@ Defined in: venpm/src/core/builder.ts:17
 restarted: boolean;
 ```
 
-Defined in: venpm/src/core/builder.ts:18
+Defined in: venpm/src/core/builder.ts:19
 
 ## Variables
 
@@ -64,7 +64,7 @@ Defined in: venpm/src/core/builder.ts:18
 const DEPLOY_PATHS: Record<"linux" | "darwin" | "win32", string>;
 ```
 
-Defined in: venpm/src/core/builder.ts:7
+Defined in: venpm/src/core/builder.ts:8
 
 ## Functions
 
@@ -78,7 +78,7 @@ function buildAndDeploy(
 options?): Promise<DeployResult>;
 ```
 
-Defined in: venpm/src/core/builder.ts:103
+Defined in: venpm/src/core/builder.ts:84
 
 Orchestrate build → deploy → (optional) restart.
 
@@ -103,7 +103,7 @@ Orchestrate build → deploy → (optional) restart.
 function buildVencord(shell, vencordPath): Promise<void>;
 ```
 
-Defined in: venpm/src/core/builder.ts:27
+Defined in: venpm/src/core/builder.ts:28
 
 Run `pnpm build` inside `vencordPath`.
 Throws an error if the build exits with a non-zero code.
@@ -127,10 +127,14 @@ Throws an error if the build exits with a non-zero code.
 function deployDist(fs, vencordPath): Promise<DeployResult>;
 ```
 
-Defined in: venpm/src/core/builder.ts:42
+Defined in: venpm/src/core/builder.ts:47
 
 Copy `<vencordPath>/dist/` to the platform-specific deployed location.
-Skips silently when the deployed directory does not exist on disk.
+
+Creates the deploy directory if it doesn't exist. Previous behaviour was to
+skip silently when the directory was missing, which required users to run
+Vencord's own installer first to bootstrap it. On macOS Apple Silicon that
+installer is x86-only and often fails, so we make `rebuild` self-sufficient.
 
 #### Parameters
 
@@ -148,19 +152,24 @@ Skips silently when the deployed directory does not exist on disk.
 ### restartDiscord()
 
 ```ts
-function restartDiscord(shell, discordBinary): Promise<void>;
+function restartDiscord(
+   fs,
+   shell,
+discordBinary): Promise<void>;
 ```
 
-Defined in: venpm/src/core/builder.ts:64
+Defined in: venpm/src/core/builder.ts:69
 
-Kill Discord via `pkill`, wait briefly, then spawn the binary detached.
-If pkill reports the process is not running (exit code 1) the kill step is
-skipped — Discord is still spawned so the caller can open it fresh.
+Kill all running Discord processes, wait for confirmed exit, then spawn
+the binary detached.  Uses `/proc/<pid>/exe`-based discovery so only
+verified Discord binaries are killed (no stray processes).  SIGTERM is
+tried first; survivors are escalated to SIGKILL.
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
+| `fs` | [`FileSystem`](types.md#filesystem) |
 | `shell` | [`ShellRunner`](types.md#shellrunner) |
 | `discordBinary` | `string` |
 

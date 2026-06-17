@@ -17,7 +17,7 @@ my-plugins/
   README.md                      # Basic readme
   .github/
     workflows/
-      validate.yml               # CI: validate plugins.json on push
+      publish.yml                # CI: validate plugins.json on push
 ```
 
 The `plugins.json` starts with the schema reference and your repo name (derived from the directory name):
@@ -26,7 +26,7 @@ The `plugins.json` starts with the schema reference and your repo name (derived 
 {
   "$schema": "https://venpm.dev/schemas/v1/plugins.json",
   "name": "my-plugins",
-  "description": "",
+  "description": "my-plugins plugin repository",
   "plugins": {}
 }
 ```
@@ -72,7 +72,7 @@ export default definePlugin({
 
 **With React** (`--tsx`): Creates `index.tsx` instead of `index.ts`.
 
-**With styles** (`--css`): Adds `style.css` and an import in the entry file.
+**With styles** (`--css`): Adds `style.css`. Import it from your entry file when you start using CSS.
 
 **With native** (`--native`): Adds `native.ts` for Node.js code (filesystem, child process, etc.) that runs in Electron's main process.
 
@@ -90,7 +90,7 @@ venpm create plugins/newPlugin          # works — finds plugins.json in parent
 ## After Scaffolding
 
 1. Edit the generated `index.ts` / `index.tsx` with your plugin logic
-2. Add an entry to `plugins.json` (see [Plugin Index Format](/author/plugin-index))
+2. Review the generated `plugins.json` entry and replace the placeholder metadata
 3. Install locally for development: `venpm install myPlugin --local plugins/myPlugin --no-build`
 4. Build and test: `venpm rebuild`
 5. Validate: `venpm validate plugins.json`

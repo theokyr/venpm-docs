@@ -47,7 +47,7 @@ function fetchPlugin(
 ctx): Promise<FetchResult>;
 ```
 
-Defined in: venpm/src/core/fetcher.ts:112
+Defined in: venpm/src/core/fetcher.ts:128
 
 #### Parameters
 
@@ -106,7 +106,7 @@ function fetchViaLocal(
 dest): Promise<FetchResult>;
 ```
 
-Defined in: venpm/src/core/fetcher.ts:94
+Defined in: venpm/src/core/fetcher.ts:97
 
 #### Parameters
 

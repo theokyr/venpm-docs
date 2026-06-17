@@ -6,6 +6,13 @@
         <DiscordFrame v-if="hasDemo" :title="plugin.label">
             <slot />
         </DiscordFrame>
+        <div v-if="plugin.attribution" class="plugin-attribution">
+            <strong>Attribution:</strong>
+            <span>{{ plugin.attribution.text }}</span>
+            <a v-if="plugin.attribution.href" :href="plugin.attribution.href" target="_blank" rel="noreferrer">
+                {{ plugin.attribution.label ?? "Upstream source" }}
+            </a>
+        </div>
         <p v-if="plugin.note" class="plugin-note">{{ plugin.note }}</p>
         <InstallButton :name="plugin.install" :source="plugin.source" />
     </section>
@@ -25,6 +32,11 @@ defineProps<{
         install: string;
         source?: string;
         note?: string;
+        attribution?: {
+            text: string;
+            href?: string;
+            label?: string;
+        };
     };
     hasDemo?: boolean;
 }>();
@@ -62,6 +74,29 @@ defineProps<{
     color: var(--vp-muted, #4a5c56);
     margin-top: 12px;
     margin-bottom: 0;
+}
+
+.plugin-attribution {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border: 1px solid rgba(249, 115, 22, 0.34);
+    border-radius: 8px;
+    background: rgba(249, 115, 22, 0.08);
+    color: var(--vp-body, #cbd5e1);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.plugin-attribution strong {
+    color: var(--vp-heading, #f8fafc);
+    margin-right: 4px;
+}
+
+.plugin-attribution a {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--vp-c-brand-1, #f97316);
+    font-weight: 600;
 }
 
 /* Mobile: reduced section spacing */

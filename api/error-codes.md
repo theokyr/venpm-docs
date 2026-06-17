@@ -43,6 +43,7 @@ In `--json` mode, the error is in the envelope's `error` field. In `--json-strea
 | `PNPM_NOT_AVAILABLE` | pnpm required for Vencord rebuild | `npm i -g pnpm` |
 | `DISCORD_NOT_FOUND` | Discord binary not found for restart | `venpm config set discord.binary /path/to/discord` |
 | `BUILD_FAILED` | Vencord pnpm build failed | `venpm doctor` |
+| `PLATFORM_UNSUPPORTED` | Native inject is not supported on this platform/install layout | Use Vencord's `pnpm inject` fallback |
 
 ### Resolution Errors
 
@@ -56,6 +57,14 @@ In `--json` mode, the error is in the envelope's `error` field. In `--json-strea
 | Code | When | Default Suggestion |
 |------|------|-------------------|
 | `SCHEMA_INVALID` | `plugins.json` fails schema validation | `venpm validate --strict` |
+
+### Inject Errors
+
+| Code | When | Default Suggestion |
+|------|------|-------------------|
+| `INJECT_FAILED` | Discord app bundle patching or restoration failed | `venpm inject --verbose` |
+| `ALREADY_INJECTED` | Selected Discord branch already has the venpm shim installed | `venpm uninject` |
+| `NOT_INJECTED` | Selected Discord branch has no venpm shim to remove | `venpm inject` |
 
 ### Other Errors
 
@@ -71,9 +80,9 @@ Error codes map to exit code categories:
 | Exit Code | Category | Error Codes |
 |-----------|----------|-------------|
 | `0` | Success | — |
-| `1` | Command Error | `PLUGIN_NOT_FOUND`, `PLUGIN_AMBIGUOUS`, `PLUGIN_NOT_INSTALLED`, `CIRCULAR_DEPENDENCY`, `VERSION_NOT_FOUND`, `SCHEMA_INVALID`, `REPO_FETCH_FAILED`, `NON_INTERACTIVE` |
+| `1` | Command Error | `PLUGIN_NOT_FOUND`, `PLUGIN_AMBIGUOUS`, `PLUGIN_NOT_INSTALLED`, `CIRCULAR_DEPENDENCY`, `VERSION_NOT_FOUND`, `SCHEMA_INVALID`, `REPO_FETCH_FAILED`, `NON_INTERACTIVE`, `INJECT_FAILED`, `ALREADY_INJECTED`, `NOT_INJECTED` |
 | `2` | Usage Error | Bad arguments (handled by commander) |
-| `3` | Environment Error | `VENCORD_NOT_FOUND`, `GIT_NOT_AVAILABLE`, `PNPM_NOT_AVAILABLE`, `DISCORD_NOT_FOUND`, `BUILD_FAILED` |
+| `3` | Environment Error | `VENCORD_NOT_FOUND`, `GIT_NOT_AVAILABLE`, `PNPM_NOT_AVAILABLE`, `DISCORD_NOT_FOUND`, `BUILD_FAILED`, `PLATFORM_UNSUPPORTED` |
 
 ## Fuzzy Matching
 

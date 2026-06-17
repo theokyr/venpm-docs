@@ -21,7 +21,7 @@ function addInstalled(
    entry): LockfileData;
 ```
 
-Defined in: venpm/src/core/lockfile.ts:26
+Defined in: venpm/src/core/lockfile.ts:31
 
 #### Parameters
 
@@ -43,7 +43,7 @@ Defined in: venpm/src/core/lockfile.ts:26
 function getInstalled(data, name): InstalledPlugin | undefined;
 ```
 
-Defined in: venpm/src/core/lockfile.ts:22
+Defined in: venpm/src/core/lockfile.ts:27
 
 #### Parameters
 
@@ -64,7 +64,7 @@ Defined in: venpm/src/core/lockfile.ts:22
 function isInstalled(data, name): boolean;
 ```
 
-Defined in: venpm/src/core/lockfile.ts:18
+Defined in: venpm/src/core/lockfile.ts:23
 
 #### Parameters
 
@@ -106,7 +106,7 @@ Defined in: venpm/src/core/lockfile.ts:6
 function removeInstalled(data, name): LockfileData;
 ```
 
-Defined in: venpm/src/core/lockfile.ts:33
+Defined in: venpm/src/core/lockfile.ts:38
 
 #### Parameters
 
@@ -130,7 +130,7 @@ function saveLockfile(
 data): Promise<void>;
 ```
 
-Defined in: venpm/src/core/lockfile.ts:13
+Defined in: venpm/src/core/lockfile.ts:18
 
 #### Parameters
 
