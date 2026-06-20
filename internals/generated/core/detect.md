@@ -18,7 +18,7 @@ Defined in: venpm/src/core/detect.ts:5
 function checkGitAvailable(shell): Promise<boolean>;
 ```
 
-Defined in: venpm/src/core/detect.ts:91
+Defined in: venpm/src/core/detect.ts:96
 
 Check whether `git` is available on PATH.
 
@@ -40,7 +40,7 @@ Check whether `git` is available on PATH.
 function checkPnpmAvailable(shell): Promise<boolean>;
 ```
 
-Defined in: venpm/src/core/detect.ts:103
+Defined in: venpm/src/core/detect.ts:108
 
 Check whether `pnpm` is available on PATH.
 
@@ -62,7 +62,7 @@ Check whether `pnpm` is available on PATH.
 function detectDiscordBinary(fs): Promise<string | null>;
 ```
 
-Defined in: venpm/src/core/detect.ts:79
+Defined in: venpm/src/core/detect.ts:84
 
 Detect the Discord binary path.
 

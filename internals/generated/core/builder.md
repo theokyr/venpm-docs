@@ -4,7 +4,7 @@
 
 ### BuildAndDeployOptions
 
-Defined in: venpm/src/core/builder.ts:76
+Defined in: venpm/src/core/builder.ts:81
 
 #### Properties
 
@@ -14,7 +14,7 @@ Defined in: venpm/src/core/builder.ts:76
 optional discordBinary?: string;
 ```
 
-Defined in: venpm/src/core/builder.ts:78
+Defined in: venpm/src/core/builder.ts:83
 
 ##### restart?
 
@@ -22,7 +22,7 @@ Defined in: venpm/src/core/builder.ts:78
 optional restart?: boolean;
 ```
 
-Defined in: venpm/src/core/builder.ts:77
+Defined in: venpm/src/core/builder.ts:82
 
 ***
 
@@ -78,7 +78,7 @@ function buildAndDeploy(
 options?): Promise<DeployResult>;
 ```
 
-Defined in: venpm/src/core/builder.ts:84
+Defined in: venpm/src/core/builder.ts:89
 
 Orchestrate build → deploy → (optional) restart.
 
@@ -153,8 +153,8 @@ installer is x86-only and often fails, so we make `rebuild` self-sufficient.
 
 ```ts
 function restartDiscord(
-   fs,
-   shell,
+   fs, 
+   shell, 
 discordBinary): Promise<void>;
 ```
 

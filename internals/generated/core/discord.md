@@ -67,7 +67,7 @@ function findDiscordProcesses(
 configuredBinary?): Promise<DiscordProcess[]>;
 ```
 
-Defined in: venpm/src/core/discord.ts:64
+Defined in: venpm/src/core/discord.ts:83
 
 Find running Discord processes on Linux by inspecting `/proc/<pid>/exe`.
 Only returns processes whose binary resolves to a known Discord path.
@@ -95,7 +95,7 @@ returns an empty array (Windows — handled separately by the caller).
 function isDiscordBinary(resolvedPath, configuredBinary?): boolean;
 ```
 
-Defined in: venpm/src/core/discord.ts:50
+Defined in: venpm/src/core/discord.ts:68
 
 Check whether a resolved binary path belongs to a Discord installation.
 Matches against known install locations + the user's configured binary.
@@ -122,7 +122,7 @@ function killDiscordProcesses(
 configuredBinary?): Promise<KillResult>;
 ```
 
-Defined in: venpm/src/core/discord.ts:185
+Defined in: venpm/src/core/discord.ts:204
 
 Kill all running Discord processes with SIGTERM → wait → SIGKILL escalation.
 
