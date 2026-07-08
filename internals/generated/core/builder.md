@@ -4,7 +4,7 @@
 
 ### BuildAndDeployOptions
 
-Defined in: venpm/src/core/builder.ts:81
+Defined in: venpm/src/core/builder.ts:94
 
 #### Properties
 
@@ -14,7 +14,15 @@ Defined in: venpm/src/core/builder.ts:81
 optional discordBinary?: string;
 ```
 
-Defined in: venpm/src/core/builder.ts:83
+Defined in: venpm/src/core/builder.ts:96
+
+##### pnpmEnv?
+
+```ts
+optional pnpmEnv?: Record<string, string>;
+```
+
+Defined in: venpm/src/core/builder.ts:97
 
 ##### restart?
 
@@ -22,7 +30,23 @@ Defined in: venpm/src/core/builder.ts:83
 optional restart?: boolean;
 ```
 
-Defined in: venpm/src/core/builder.ts:82
+Defined in: venpm/src/core/builder.ts:95
+
+***
+
+### BuildVencordOptions
+
+Defined in: venpm/src/core/builder.ts:24
+
+#### Properties
+
+##### pnpmEnv?
+
+```ts
+optional pnpmEnv?: Record<string, string>;
+```
+
+Defined in: venpm/src/core/builder.ts:25
 
 ***
 
@@ -78,7 +102,7 @@ function buildAndDeploy(
 options?): Promise<DeployResult>;
 ```
 
-Defined in: venpm/src/core/builder.ts:89
+Defined in: venpm/src/core/builder.ts:103
 
 Orchestrate build → deploy → (optional) restart.
 
@@ -100,10 +124,13 @@ Orchestrate build → deploy → (optional) restart.
 ### buildVencord()
 
 ```ts
-function buildVencord(shell, vencordPath): Promise<void>;
+function buildVencord(
+   shell, 
+   vencordPath, 
+options?): Promise<void>;
 ```
 
-Defined in: venpm/src/core/builder.ts:28
+Defined in: venpm/src/core/builder.ts:32
 
 Run `pnpm build` inside `vencordPath`.
 Throws an error if the build exits with a non-zero code.
@@ -114,6 +141,7 @@ Throws an error if the build exits with a non-zero code.
 | ------ | ------ |
 | `shell` | [`ShellRunner`](types.md#shellrunner) |
 | `vencordPath` | `string` |
+| `options` | [`BuildVencordOptions`](#buildvencordoptions) |
 
 #### Returns
 
@@ -127,7 +155,7 @@ Throws an error if the build exits with a non-zero code.
 function deployDist(fs, vencordPath): Promise<DeployResult>;
 ```
 
-Defined in: venpm/src/core/builder.ts:47
+Defined in: venpm/src/core/builder.ts:60
 
 Copy `<vencordPath>/dist/` to the platform-specific deployed location.
 
@@ -158,7 +186,7 @@ function restartDiscord(
 discordBinary): Promise<void>;
 ```
 
-Defined in: venpm/src/core/builder.ts:69
+Defined in: venpm/src/core/builder.ts:82
 
 Kill all running Discord processes, wait for confirmed exit, then spawn
 the binary detached.  Uses `/proc/<pid>/exe`-based discovery so only

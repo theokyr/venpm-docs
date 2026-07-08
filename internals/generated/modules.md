@@ -15,6 +15,7 @@
 - [cli/kill-discord](cli/kill-discord.md)
 - [cli/list](cli/list.md)
 - [cli/output](cli/output.md)
+- [cli/pnpm-env](cli/pnpm-env.md)
 - [cli/rebuild](cli/rebuild.md)
 - [cli/repo](cli/repo.md)
 - [cli/search](cli/search.md)
