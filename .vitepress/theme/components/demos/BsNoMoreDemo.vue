@@ -1,5 +1,4 @@
 <template>
-    <DiscordFrame title="bsNoMore — clutter removal">
         <div class="bsn-demo">
             <!-- Left: DM Sidebar -->
             <div class="bsn-sidebar">
@@ -93,12 +92,10 @@
                 </div>
             </div>
         </div>
-    </DiscordFrame>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-import DiscordFrame from "../showcase/DiscordFrame.vue";
 
 const clean = ref(false);
 

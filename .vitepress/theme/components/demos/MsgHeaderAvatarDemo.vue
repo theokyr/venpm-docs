@@ -1,5 +1,4 @@
 <template>
-    <DiscordFrame title="messageHeaderAvatar — avatar in message header">
         <div class="mha-demo">
             <!-- Control bar -->
             <div class="mha-controls">
@@ -81,12 +80,10 @@
                 </div>
             </div>
         </div>
-    </DiscordFrame>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-import DiscordFrame from "../showcase/DiscordFrame.vue";
 
 const avatarSize = ref(20);
 const shape = ref<"circle" | "square">("circle");

@@ -2,8 +2,10 @@
     <section :id="`plugin-${plugin.name}`" class="plugin-section">
         <h2 class="plugin-name">{{ plugin.label }}</h2>
         <p class="plugin-desc">{{ plugin.description }}</p>
-        <FeaturePills :features="plugin.features ?? []" />
-        <DiscordFrame v-if="hasDemo" :title="plugin.label">
+        <div v-if="plugin.prose?.length" class="plugin-prose">
+            <p v-for="paragraph in plugin.prose" :key="paragraph">{{ paragraph }}</p>
+        </div>
+        <DiscordFrame v-if="hasDemo" :title="plugin.demoTitle ?? `${plugin.label} demo`">
             <slot />
         </DiscordFrame>
         <div v-if="plugin.attribution" class="plugin-attribution">
@@ -19,7 +21,6 @@
 </template>
 
 <script setup lang="ts">
-import FeaturePills from "./FeaturePills.vue";
 import DiscordFrame from "./DiscordFrame.vue";
 import InstallButton from "./InstallButton.vue";
 
@@ -28,7 +29,8 @@ defineProps<{
         name: string;
         label: string;
         description: string;
-        features?: string[];
+        prose?: string[];
+        demoTitle?: string;
         install: string;
         source?: string;
         note?: string;
@@ -46,6 +48,7 @@ defineProps<{
 .plugin-section {
     padding: 64px 0;
     border-bottom: 1px solid var(--vp-border, #1c2b26);
+    scroll-margin-top: calc(var(--vp-nav-height, 64px) + 24px);
 }
 
 .plugin-section:last-child {
@@ -67,6 +70,22 @@ defineProps<{
     font-size: 15px;
     color: var(--vp-body, #94a3b8);
     margin: 0;
+}
+
+.plugin-prose {
+    margin: 14px 0 18px;
+    max-width: 720px;
+}
+
+.plugin-prose p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--vp-body, #94a3b8);
+    margin: 0;
+}
+
+.plugin-prose p + p {
+    margin-top: 10px;
 }
 
 .plugin-note {
@@ -100,6 +119,12 @@ defineProps<{
 }
 
 /* Mobile: reduced section spacing */
+@media (max-width: 1023px) {
+    .plugin-section {
+        scroll-margin-top: calc(var(--vp-nav-height, 64px) + 64px);
+    }
+}
+
 @media (max-width: 767px) {
     .plugin-section {
         padding: 40px 0;

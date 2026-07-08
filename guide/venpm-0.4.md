@@ -21,7 +21,7 @@ The default plugin repository is named `kamaras`. Use that alias with `--from` w
 venpm install channelTabs --from kamaras
 ```
 
-The public showcase now tracks the installable `plugins.json` entries, including `betterBlockIgnore` and `enrichedHeader`. Shared `_lib*` packages are documented as transitive dependency modules, not end-user plugins.
+The public showcase now tracks every user-facing installable `plugins.json` entry, including `betterRes` and `vipNotifications`. Shared `_lib*` packages are documented as transitive dependency modules, not end-user plugins.
 
 ## Attribution
 

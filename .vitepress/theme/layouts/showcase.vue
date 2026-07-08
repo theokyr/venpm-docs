@@ -1,15 +1,17 @@
 <template>
     <div class="showcase-layout">
-        <nav class="showcase-pills">
-            <div
+        <nav class="showcase-mobile-nav" aria-label="Plugin sections">
+            <a
                 v-for="plugin in plugins"
                 :key="plugin.name"
-                class="showcase-pill"
+                :href="`#plugin-${plugin.name}`"
+                class="showcase-mobile-nav-item"
                 :class="{ active: activePlugin === plugin.name }"
-                @click="scrollToPlugin(plugin.name)"
+                :aria-current="activePlugin === plugin.name ? 'location' : undefined"
+                @click.prevent="scrollToPlugin(plugin.name)"
             >
                 {{ plugin.label }}
-            </div>
+            </a>
         </nav>
         <div class="showcase-body">
             <aside class="showcase-sidebar">
@@ -21,6 +23,7 @@
                         :href="`#plugin-${plugin.name}`"
                         class="showcase-sidebar-item"
                         :class="{ active: activePlugin === plugin.name }"
+                        :aria-current="activePlugin === plugin.name ? 'location' : undefined"
                         @click.prevent="scrollToPlugin(plugin.name)"
                     >{{ plugin.label }}</a>
                 </nav>
@@ -28,12 +31,14 @@
             <main class="showcase-content">
                 <div class="showcase-hero">
                     <h1>kamaras plugins</h1>
-                    <p class="showcase-hero-subtitle">A collection of Vencord userplugins — install any of them with venpm.</p>
+                    <p class="showcase-hero-subtitle">
+                        Vencord userplugins for faster navigation, quieter Discord UI, better calls and streams, and local agent tooling.
+                    </p>
                     <p class="showcase-hero-hint">
-                        Install any plugin: <code>venpm install &lt;name&gt;</code>
+                        Install from the default repo with <code>venpm install &lt;name&gt;</code>.
                     </p>
                     <p v-if="sharedModules.length" class="showcase-shared-modules">
-                        Shared modules installed transitively:
+                        Shared dependency modules install automatically:
                         <code v-for="moduleName in sharedModules" :key="moduleName">{{ moduleName }}</code>
                     </p>
                 </div>
@@ -66,10 +71,15 @@ const demoComponents: Record<string, ReturnType<typeof defineAsyncComponent>> = 
     settingsHub: defineAsyncComponent(() => import("../components/demos/SettingsHubDemo.vue")),
     minimalCallBar: defineAsyncComponent(() => import("../components/demos/MinimalCallBarDemo.vue")),
     hotkeyNav: defineAsyncComponent(() => import("../components/demos/HotkeyNavDemo.vue")),
+    embedFix: defineAsyncComponent(() => import("../components/demos/EmbedFixDemo.vue")),
+    betterBlockIgnore: defineAsyncComponent(() => import("../components/demos/BetterBlockIgnoreDemo.vue")),
     discordMcp: defineAsyncComponent(() => import("../components/demos/DiscordMcpDemo.vue")),
     bsNoMore: defineAsyncComponent(() => import("../components/demos/BsNoMoreDemo.vue")),
+    enrichedHeader: defineAsyncComponent(() => import("../components/demos/EnrichedHeaderDemo.vue")),
     messageHeaderAvatar: defineAsyncComponent(() => import("../components/demos/MsgHeaderAvatarDemo.vue")),
     venpmGui: defineAsyncComponent(() => import("../components/demos/VenpmGuiDemo.vue")),
+    betterRes: defineAsyncComponent(() => import("../components/demos/BetterResDemo.vue")),
+    vipNotifications: defineAsyncComponent(() => import("../components/demos/VipNotificationsDemo.vue")),
 };
 
 function hasDemo(name: string): boolean {
@@ -86,6 +96,7 @@ function scrollToPlugin(name: string) {
     const el = document.getElementById(`plugin-${name}`);
     if (!el) return;
     el.scrollIntoView({ behavior: "smooth", block: "start" });
+    activePlugin.value = name;
     history.replaceState(null, "", `#plugin-${name}`);
 }
 
@@ -242,8 +253,8 @@ onUnmounted(() => {
     border-radius: 4px;
 }
 
-/* Mobile pill bar — hidden by default, shown on tablet/mobile */
-.showcase-pills {
+/* Mobile navigation — hidden by default, shown on tablet/mobile */
+.showcase-mobile-nav {
     display: none;
 }
 
@@ -258,7 +269,7 @@ onUnmounted(() => {
         padding: 24px 20px;
     }
 
-    .showcase-pills {
+    .showcase-mobile-nav {
         display: flex;
         gap: 6px;
         padding: 8px 16px;
@@ -271,27 +282,28 @@ onUnmounted(() => {
         border-bottom: 1px solid var(--vp-border, #1c2b26);
     }
 
-    .showcase-pills::-webkit-scrollbar {
+    .showcase-mobile-nav::-webkit-scrollbar {
         display: none;
     }
 
-    .showcase-pill {
+    .showcase-mobile-nav-item {
         font-family: var(--vp-font-family-mono);
         font-size: 12px;
-        padding: 4px 12px;
-        border-radius: 12px;
+        padding: 5px 10px;
+        border-radius: 4px;
         border: 1px solid var(--vp-border, #1c2b26);
         color: var(--vp-body, #94a3b8);
+        text-decoration: none;
         white-space: nowrap;
         cursor: pointer;
         transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
     }
 
-    .showcase-pill:hover {
+    .showcase-mobile-nav-item:hover {
         background: rgba(42, 64, 56, 0.5);
     }
 
-    .showcase-pill.active {
+    .showcase-mobile-nav-item.active {
         color: var(--vp-amber, #f97316);
         background: rgba(249, 115, 22, 0.12);
         border-color: rgba(249, 115, 22, 0.3);

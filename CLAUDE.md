@@ -12,8 +12,8 @@ VitePress documentation site for venpm (Vencord Plugin Manager).
   InstallCommand.vue     # npm install command widget (injected into hero)
   custom.css             # Global overrides (hero widescreen, ultrawide logo)
   layouts/showcase.vue   # Reusable showcase layout — frontmatter-driven sections
-  components/showcase/   # DiscordFrame, PluginSection, InstallButton, FeaturePills
-  components/demos/      # 8 interactive plugin demo components (lazy-loaded)
+  components/showcase/   # DiscordFrame, PluginSection, InstallButton
+  components/demos/      # Interactive plugin demo components (lazy-loaded)
 guide/                   # User guide (getting started, installing, config, troubleshooting)
 author/                  # Author guide (first plugin, index format, scaffolding, CI)
 api/                     # API reference (CLI commands, JSON output, schemas)
@@ -30,11 +30,11 @@ public/                  # Static assets (logo, favicon)
 The `showcase` layout (`layouts/showcase.vue`) is a reusable VitePress layout for plugin author pages. It reads sections from frontmatter YAML and renders them with:
 
 - Sticky left sidebar with IntersectionObserver scroll-spy (desktop)
-- Mobile pill bar for small screens
+- Mobile plugin navigation for small screens
 - Lazy-loaded demo components via `defineAsyncComponent` keyed by plugin name
 - DiscordFrame wrappers providing Discord-like chrome around demos
 
-To add a new showcase page, create a `.md` file with `layout: showcase` in frontmatter and define `sections` with plugin metadata. Demo components live in `components/demos/` and are auto-mapped by plugin name.
+To add a new showcase page, create a `.md` file with `layout: showcase` in frontmatter and define `plugins` with plugin metadata. Demo components live in `components/demos/` and are auto-mapped by plugin name.
 
 ## Build
 

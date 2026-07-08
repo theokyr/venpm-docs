@@ -1,5 +1,4 @@
 <template>
-    <DiscordFrame title="discordMcp — permission bridge">
         <div class="mcp-demo" ref="demoEl">
             <!-- Flow diagram -->
             <div class="flow-row">
@@ -58,12 +57,10 @@
             <!-- Status label -->
             <div class="flow-status">{{ statusLabels[step] }}</div>
         </div>
-    </DiscordFrame>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
-import DiscordFrame from "../showcase/DiscordFrame.vue";
 
 const demoEl = ref<HTMLElement | null>(null);
 const step = ref(0);

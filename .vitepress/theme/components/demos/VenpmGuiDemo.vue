@@ -1,5 +1,4 @@
 <template>
-    <DiscordFrame title="venpmGui — plugin browser">
         <div class="vg-demo">
             <!-- Search bar -->
             <div class="vg-search">
@@ -40,12 +39,10 @@
                 </div>
             </div>
         </div>
-    </DiscordFrame>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import DiscordFrame from "../showcase/DiscordFrame.vue";
 
 type PluginState = "default" | "installing" | "installed";
 

@@ -1,5 +1,4 @@
 <template>
-    <DiscordFrame title="settingsHub — unified settings">
         <div class="sh-demo">
             <!-- Sidebar -->
             <div class="sh-sidebar">
@@ -70,12 +69,10 @@
                 </div>
             </div>
         </div>
-    </DiscordFrame>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, reactive } from "vue";
-import DiscordFrame from "../showcase/DiscordFrame.vue";
 
 type SettingType = "toggle" | "slider" | "select";
 

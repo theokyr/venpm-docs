@@ -1,5 +1,4 @@
 <template>
-    <DiscordFrame title="channelTabs — tab bar">
         <div class="ct-demo">
             <!-- Tab bar -->
             <div class="ct-tabbar">
@@ -60,12 +59,10 @@
                 </div>
             </div>
         </div>
-    </DiscordFrame>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import DiscordFrame from "../showcase/DiscordFrame.vue";
 
 interface Tab {
     id: number;
