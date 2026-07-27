@@ -8,7 +8,7 @@
 function registerDoctorCommand(program): void;
 ```
 
-Defined in: venpm/src/cli/doctor.ts:17
+Defined in: venpm/src/cli/doctor.ts:18
 
 #### Parameters
 

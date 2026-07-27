@@ -56,7 +56,7 @@ Defined in: venpm/src/core/errors.ts:4
 type ErrorCodeValue = typeof ErrorCode[keyof typeof ErrorCode];
 ```
 
-Defined in: venpm/src/core/errors.ts:29
+Defined in: venpm/src/core/errors.ts:30
 
 ## Variables
 
@@ -78,6 +78,7 @@ const ErrorCode: {
   PLUGIN_NOT_INSTALLED: "PLUGIN_NOT_INSTALLED";
   PNPM_NOT_AVAILABLE: "PNPM_NOT_AVAILABLE";
   REPO_FETCH_FAILED: "REPO_FETCH_FAILED";
+  RESTART_FAILED: "RESTART_FAILED";
   SCHEMA_INVALID: "SCHEMA_INVALID";
   VENCORD_NOT_FOUND: "VENCORD_NOT_FOUND";
   VERSION_NOT_FOUND: "VERSION_NOT_FOUND";
@@ -172,6 +173,12 @@ readonly PNPM_NOT_AVAILABLE: "PNPM_NOT_AVAILABLE" = "PNPM_NOT_AVAILABLE";
 readonly REPO_FETCH_FAILED: "REPO_FETCH_FAILED" = "REPO_FETCH_FAILED";
 ```
 
+##### RESTART\_FAILED
+
+```ts
+readonly RESTART_FAILED: "RESTART_FAILED" = "RESTART_FAILED";
+```
+
 ##### SCHEMA\_INVALID
 
 ```ts
@@ -203,7 +210,7 @@ const ExitCode: {
 };
 ```
 
-Defined in: venpm/src/core/errors.ts:51
+Defined in: venpm/src/core/errors.ts:53
 
 #### Type Declaration
 
@@ -239,7 +246,7 @@ readonly USAGE_ERROR: 2 = 2;
 function exitCodeForError(code): number;
 ```
 
-Defined in: venpm/src/core/errors.ts:58
+Defined in: venpm/src/core/errors.ts:60
 
 #### Parameters
 
@@ -262,7 +269,7 @@ function makeError(
    options?): ErrorInfo;
 ```
 
-Defined in: venpm/src/core/errors.ts:72
+Defined in: venpm/src/core/errors.ts:75
 
 #### Parameters
 

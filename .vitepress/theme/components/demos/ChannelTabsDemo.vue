@@ -1,7 +1,15 @@
 <template>
         <div class="ct-demo">
             <!-- Tab bar -->
-            <div class="ct-tabbar">
+            <div
+                ref="tabbar"
+                class="ct-tabbar"
+                @dragover.prevent="onDragOver"
+                @drop.prevent="onDrop"
+                @dragleave="onDragLeave"
+            >
+                <div v-if="caretX !== null" class="ct-caret" :style="{ left: `${caretX}px` }"></div>
+                <TransitionGroup name="ct-move" tag="div" class="ct-taglist">
                 <div
                     v-for="(tab, i) in tabs"
                     :key="tab.id"
@@ -10,12 +18,16 @@
                         'ct-tab--active': activeId === tab.id,
                         'ct-tab--closing': closingId === tab.id,
                         'ct-tab--hovered': hoveredId === tab.id && activeId !== tab.id,
+                        'ct-tab--dragging': draggingId === tab.id,
                     }"
                     :style="tab.id === closingId ? closingStyle : {}"
+                    :data-index="i"
+                    draggable="true"
+                    @dragstart="onDragStart($event, tab, i)"
+                    @dragend="onDragEnd"
                     @click="activateTab(tab.id)"
                     @mouseenter="hoveredId = tab.id"
                     @mouseleave="hoveredId = null"
-                    @mousedown.prevent
                 >
                     <span v-if="tab.type === 'dm'" class="ct-avatar">{{ tab.initials }}</span>
                     <span v-else class="ct-hash">#</span>
@@ -34,6 +46,7 @@
                         </svg>
                     </button>
                 </div>
+                </TransitionGroup>
                 <button
                     class="ct-add"
                     title="New tab"
@@ -47,6 +60,8 @@
                     </svg>
                 </button>
             </div>
+
+            <p class="ct-hint">Drag a tab to reorder it.</p>
 
             <!-- Message content -->
             <div class="ct-content">
@@ -95,8 +110,8 @@ const allMessages: Record<string, Message[]> = {
         { id: 3, user: "user1", text: "thinking of doing a build stream", avatarColor: "#5865f2" },
     ],
     announcements: [
-        { id: 1, user: "system", text: "venpm v0.1.0 is out — install any plugin with one command", avatarColor: "#57f287" },
-        { id: 2, user: "system", text: "channelTabs now supports native context menus", avatarColor: "#57f287" },
+        { id: 1, user: "system", text: "venpm v0.5.0 is out — install any plugin with one command", avatarColor: "#57f287" },
+        { id: 2, user: "system", text: "channelTabs tabs can now be dragged, grouped, and reordered", avatarColor: "#57f287" },
         { id: 3, user: "system", text: "settingsHub unified settings are live", avatarColor: "#57f287" },
     ],
     stream: [
@@ -161,6 +176,98 @@ function closeTab(id: number, index: number) {
     }, 150);
 }
 
+/* ── Drag & drop ──
+ * Mirrors the plugin: the payload is kept in module state because `dragover`
+ * cannot read `dataTransfer`, the drop slot is the index before the first tab
+ * whose midpoint the pointer has not passed, and the reorder itself is a FLIP
+ * animation (here, Vue's TransitionGroup move class). */
+
+const tabbar = ref<HTMLElement | null>(null);
+const draggingId = ref<number | null>(null);
+const dropIndex = ref<number | null>(null);
+const caretX = ref<number | null>(null);
+let dragFrom = -1;
+
+function tabEls(): HTMLElement[] {
+    if (!tabbar.value) return [];
+    return Array.from(tabbar.value.querySelectorAll<HTMLElement>(".ct-tab"));
+}
+
+/** Insertion slot nearest to `clientX`, and where to paint the caret. */
+function slotAt(clientX: number): { index: number; x: number } {
+    const bar = tabbar.value;
+    if (!bar) return { index: 0, x: 0 };
+    const barLeft = bar.getBoundingClientRect().left;
+    const els = tabEls();
+
+    for (const el of els) {
+        const rect = el.getBoundingClientRect();
+        if (clientX < rect.left + rect.width / 2) {
+            return { index: Number(el.dataset.index), x: rect.left - barLeft - 1 };
+        }
+    }
+
+    const last = els[els.length - 1];
+    return {
+        index: els.length,
+        x: last ? last.getBoundingClientRect().right - barLeft - 1 : 0,
+    };
+}
+
+function onDragStart(e: DragEvent, tab: Tab, index: number) {
+    draggingId.value = tab.id;
+    dragFrom = index;
+    e.dataTransfer?.setData("text/plain", String(tab.id));
+    if (e.dataTransfer) e.dataTransfer.effectAllowed = "move";
+
+    // Replace the browser's flat ghost with a tilted, shadowed clone.
+    const el = e.currentTarget as HTMLElement;
+    const mirror = el.cloneNode(true) as HTMLElement;
+    mirror.classList.add("ct-mirror");
+    mirror.style.width = `${el.offsetWidth}px`;
+    document.body.appendChild(mirror);
+    e.dataTransfer?.setDragImage(mirror, el.offsetWidth / 2, el.offsetHeight / 2);
+    setTimeout(() => mirror.remove(), 0);
+}
+
+function onDragOver(e: DragEvent) {
+    if (draggingId.value === null) return;
+    if (e.dataTransfer) e.dataTransfer.dropEffect = "move";
+    const slot = slotAt(e.clientX);
+    dropIndex.value = slot.index;
+    caretX.value = slot.x;
+}
+
+function onDragLeave(e: DragEvent) {
+    // Only clear when the pointer actually left the bar, not a child tab.
+    const related = e.relatedTarget as Node | null;
+    if (!related || !tabbar.value?.contains(related)) caretX.value = null;
+}
+
+function onDrop() {
+    const to = dropIndex.value;
+    if (draggingId.value === null || to === null || dragFrom < 0) return resetDrag();
+
+    const next = [...tabs.value];
+    const [moved] = next.splice(dragFrom, 1);
+    // Removing the source shifts every later slot left by one.
+    next.splice(to > dragFrom ? to - 1 : to, 0, moved);
+    tabs.value = next;
+
+    resetDrag();
+}
+
+function onDragEnd() {
+    resetDrag();
+}
+
+function resetDrag() {
+    draggingId.value = null;
+    dropIndex.value = null;
+    caretX.value = null;
+    dragFrom = -1;
+}
+
 const newTabNames = ["random", "gaming", "music", "memes", "off-topic"];
 function addTab() {
     const name = newTabNames[tabCounter % newTabNames.length];
@@ -190,6 +297,57 @@ function addTab() {
     padding: 0 4px;
     gap: 2px;
     overflow: hidden;
+    position: relative;
+}
+
+/* Lets the tabs stay direct flex children of the bar while TransitionGroup
+   wraps them for the move (FLIP) animation. */
+.ct-taglist {
+    display: contents;
+}
+
+/* ── Drag & drop ── */
+.ct-caret {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    width: 2px;
+    border-radius: 1px;
+    background: #f97316;
+    box-shadow: 0 0 6px rgba(249, 115, 22, 0.8);
+    transition: left 120ms cubic-bezier(0.2, 0, 0, 1);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.ct-tab--dragging {
+    opacity: 0.35;
+}
+
+/* FLIP: TransitionGroup transforms each tab from its old box to its new one. */
+.ct-move-move {
+    transition: transform 220ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* The clone handed to setDragImage — tilted and lifted off the bar. */
+.ct-mirror {
+    position: fixed;
+    top: -1000px;
+    left: -1000px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 26px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'gg sans', 'Noto Sans', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: #fff;
+    white-space: nowrap;
+    background: #3a3d44;
+    transform: rotate(-3deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
 }
 
 .ct-tab {
@@ -291,6 +449,13 @@ function addTab() {
     flex-shrink: 0;
     margin-left: 2px;
     transition: background 150ms ease, color 150ms ease;
+}
+
+.ct-hint {
+    margin: 0;
+    padding: 6px 12px 0;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.35);
 }
 
 /* ── Message content ── */

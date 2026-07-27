@@ -105,7 +105,6 @@ export default defineConfig({
                     text: "User Guide",
                     items: [
                         { text: "Getting Started", link: "/guide/getting-started" },
-                        { text: "venpm 0.4 Prep", link: "/guide/venpm-0.4" },
                         { text: "Installing Plugins", link: "/guide/installing-plugins" },
                         { text: "Configuration", link: "/guide/configuration" },
                         { text: "Troubleshooting", link: "/guide/troubleshooting" },

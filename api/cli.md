@@ -337,13 +337,26 @@ venpm rebuild [options]
 
 Runs `pnpm build` in the Vencord source tree, copies the output to Discord's load path (`~/.config/Vencord/dist/`), and optionally restarts Discord based on the `discord.restart` config setting.
 
+### Verified Restarts
+
+A restart is not reported as successful just because the process was spawned. venpm waits for a Discord process to appear, then requires it to still be alive a few seconds later — the settle window is what catches Electron exiting shortly after launch over a bad display, a missing library, or a broken install.
+
+Discord is launched from your desktop session's environment rather than the calling shell's, so a rebuild started from a script, an editor terminal, or an agent does not inherit a display setup that would kill the client on startup. Run `venpm doctor` to see which display a restart will use.
+
+When the restart fails, the build and deploy are still done — only the restart is lost. venpm reports `RESTART_FAILED` and quotes the tail of the launch log:
+
+| Platform | Launch log |
+|----------|------------|
+| Linux | `~/.local/state/venpm/discord-launch.log` |
+| macOS | `~/Library/Logs/venpm/discord-launch.log` |
+
 ### Exit Codes
 
 | Code | Meaning |
 |------|---------|
 | `0` | Build succeeded |
 | `1` | Command error (cancelled, etc.) |
-| `3` | Environment error (Vencord not found, pnpm not found, build failed) |
+| `3` | Environment error (Vencord not found, pnpm not found, build failed, or `RESTART_FAILED`) |
 
 > See [Error Codes](/api/error-codes) for the full list of structured error codes returned with each error.
 

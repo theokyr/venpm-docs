@@ -11,8 +11,9 @@ plugins:
     description: "IDE-style tabs for Discord channels and DMs."
     prose:
       - "channelTabs keeps the conversations you are actively using in a compact tab bar, so jumping between a server channel, a DM, and a reference thread does not require rewalking Discord's sidebars every time."
-      - "Tabs can be opened, reordered, closed, and styled. The plugin also exposes a virtual tab API that other plugins can use, with optional settingsHub and keybind registry integration for deeper control."
-    demoTitle: "channelTabs - tab bar"
+      - "Tabs can be opened, closed, grouped, and styled. Dragging one shows a tilted mirror of the tab, a caret marking where it will land, and an animated reorder as the others move aside; dropping onto the middle of a group chip files it away instead."
+      - "The plugin also exposes a virtual tab API that other plugins can use, with optional settingsHub and keybind registry integration for deeper control."
+    demoTitle: "channelTabs - drag to reorder"
     source: https://github.com/theokyr/vencord-plugins/tree/main/plugins/channelTabs
     install: channelTabs
   - name: settingsHub

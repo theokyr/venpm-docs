@@ -34,6 +34,7 @@
 - [core/inject](core/inject.md)
 - [core/json](core/json.md)
 - [core/json-renderer](core/json-renderer.md)
+- [core/launch](core/launch.md)
 - [core/lockfile](core/lockfile.md)
 - [core/log](core/log.md)
 - [core/paths](core/paths.md)

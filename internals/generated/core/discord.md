@@ -89,6 +89,31 @@ returns an empty array (Windows — handled separately by the caller).
 
 ***
 
+### findDiscordProcessesWin32()
+
+```ts
+function findDiscordProcessesWin32(shell, configuredBinary?): Promise<DiscordProcess[]>;
+```
+
+Defined in: venpm/src/core/discord.ts:105
+
+Windows has no /proc and no ps, so liveness comes from `tasklist` CSV output.
+Image names only — enough to answer "is Discord running?", which is what
+restart verification needs.
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `shell` | [`ShellRunner`](types.md#shellrunner) |
+| `configuredBinary?` | `string` \| `null` |
+
+#### Returns
+
+`Promise`\<[`DiscordProcess`](#discordprocess)[]\>
+
+***
+
 ### isDiscordBinary()
 
 ```ts
@@ -122,7 +147,7 @@ function killDiscordProcesses(
 configuredBinary?): Promise<KillResult>;
 ```
 
-Defined in: venpm/src/core/discord.ts:204
+Defined in: venpm/src/core/discord.ts:234
 
 Kill all running Discord processes with SIGTERM → wait → SIGKILL escalation.
 

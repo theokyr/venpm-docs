@@ -44,6 +44,7 @@ In `--json` mode, the error is in the envelope's `error` field. In `--json-strea
 | `DISCORD_NOT_FOUND` | Discord binary not found for restart | `venpm config set discord.binary /path/to/discord` |
 | `BUILD_FAILED` | Vencord pnpm build failed | `venpm doctor` |
 | `PLATFORM_UNSUPPORTED` | Native inject is not supported on this platform/install layout | Use Vencord's `pnpm inject` fallback |
+| `RESTART_FAILED` | Build and deploy succeeded, but Discord did not come back after the restart | Start Discord yourself, or `venpm doctor` to check the launch environment |
 
 ### Resolution Errors
 
@@ -82,7 +83,7 @@ Error codes map to exit code categories:
 | `0` | Success | — |
 | `1` | Command Error | `PLUGIN_NOT_FOUND`, `PLUGIN_AMBIGUOUS`, `PLUGIN_NOT_INSTALLED`, `CIRCULAR_DEPENDENCY`, `VERSION_NOT_FOUND`, `SCHEMA_INVALID`, `REPO_FETCH_FAILED`, `NON_INTERACTIVE`, `INJECT_FAILED`, `ALREADY_INJECTED`, `NOT_INJECTED` |
 | `2` | Usage Error | Bad arguments (handled by commander) |
-| `3` | Environment Error | `VENCORD_NOT_FOUND`, `GIT_NOT_AVAILABLE`, `PNPM_NOT_AVAILABLE`, `DISCORD_NOT_FOUND`, `BUILD_FAILED`, `PLATFORM_UNSUPPORTED` |
+| `3` | Environment Error | `VENCORD_NOT_FOUND`, `GIT_NOT_AVAILABLE`, `PNPM_NOT_AVAILABLE`, `DISCORD_NOT_FOUND`, `BUILD_FAILED`, `PLATFORM_UNSUPPORTED`, `RESTART_FAILED` |
 
 ## Fuzzy Matching
 

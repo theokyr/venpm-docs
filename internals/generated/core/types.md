@@ -71,7 +71,7 @@ Absolute path to the Vencord source checkout, or null if not yet configured
 
 ### CreateOptions
 
-Defined in: venpm/src/core/types.ts:202
+Defined in: venpm/src/core/types.ts:216
 
 #### Extends
 
@@ -85,7 +85,7 @@ Defined in: venpm/src/core/types.ts:202
 optional config?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:184
+Defined in: venpm/src/core/types.ts:198
 
 ###### Inherited from
 
@@ -97,7 +97,7 @@ Defined in: venpm/src/core/types.ts:184
 optional force?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:204
+Defined in: venpm/src/core/types.ts:218
 
 ##### json?
 
@@ -105,7 +105,7 @@ Defined in: venpm/src/core/types.ts:204
 optional json?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:188
+Defined in: venpm/src/core/types.ts:202
 
 ###### Inherited from
 
@@ -117,7 +117,7 @@ Defined in: venpm/src/core/types.ts:188
 optional jsonStream?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:189
+Defined in: venpm/src/core/types.ts:203
 
 ###### Inherited from
 
@@ -129,7 +129,7 @@ Defined in: venpm/src/core/types.ts:189
 optional output?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:203
+Defined in: venpm/src/core/types.ts:217
 
 ##### quiet?
 
@@ -137,7 +137,7 @@ Defined in: venpm/src/core/types.ts:203
 optional quiet?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:186
+Defined in: venpm/src/core/types.ts:200
 
 ###### Inherited from
 
@@ -149,7 +149,7 @@ Defined in: venpm/src/core/types.ts:186
 optional verbose?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:185
+Defined in: venpm/src/core/types.ts:199
 
 ###### Inherited from
 
@@ -161,7 +161,7 @@ Defined in: venpm/src/core/types.ts:185
 optional yes?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:187
+Defined in: venpm/src/core/types.ts:201
 
 ###### Inherited from
 
@@ -527,7 +527,7 @@ Defined in: venpm/src/core/types.ts:153
 
 ### GlobalOptions
 
-Defined in: venpm/src/core/types.ts:183
+Defined in: venpm/src/core/types.ts:197
 
 #### Extended by
 
@@ -544,7 +544,7 @@ Defined in: venpm/src/core/types.ts:183
 optional config?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:184
+Defined in: venpm/src/core/types.ts:198
 
 ##### json?
 
@@ -552,7 +552,7 @@ Defined in: venpm/src/core/types.ts:184
 optional json?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:188
+Defined in: venpm/src/core/types.ts:202
 
 ##### jsonStream?
 
@@ -560,7 +560,7 @@ Defined in: venpm/src/core/types.ts:188
 optional jsonStream?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:189
+Defined in: venpm/src/core/types.ts:203
 
 ##### quiet?
 
@@ -568,7 +568,7 @@ Defined in: venpm/src/core/types.ts:189
 optional quiet?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:186
+Defined in: venpm/src/core/types.ts:200
 
 ##### verbose?
 
@@ -576,7 +576,7 @@ Defined in: venpm/src/core/types.ts:186
 optional verbose?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:185
+Defined in: venpm/src/core/types.ts:199
 
 ##### yes?
 
@@ -584,7 +584,7 @@ Defined in: venpm/src/core/types.ts:185
 optional yes?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:187
+Defined in: venpm/src/core/types.ts:201
 
 ***
 
@@ -726,7 +726,7 @@ Defined in: venpm/src/core/types.ts:80
 
 ### InstallOptions
 
-Defined in: venpm/src/core/types.ts:192
+Defined in: venpm/src/core/types.ts:206
 
 #### Extends
 
@@ -740,7 +740,7 @@ Defined in: venpm/src/core/types.ts:192
 optional config?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:184
+Defined in: venpm/src/core/types.ts:198
 
 ###### Inherited from
 
@@ -752,7 +752,7 @@ Defined in: venpm/src/core/types.ts:184
 optional from?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:194
+Defined in: venpm/src/core/types.ts:208
 
 ##### git?
 
@@ -760,7 +760,7 @@ Defined in: venpm/src/core/types.ts:194
 optional git?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:196
+Defined in: venpm/src/core/types.ts:210
 
 ##### json?
 
@@ -768,7 +768,7 @@ Defined in: venpm/src/core/types.ts:196
 optional json?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:188
+Defined in: venpm/src/core/types.ts:202
 
 ###### Inherited from
 
@@ -780,7 +780,7 @@ Defined in: venpm/src/core/types.ts:188
 optional jsonStream?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:189
+Defined in: venpm/src/core/types.ts:203
 
 ###### Inherited from
 
@@ -792,7 +792,7 @@ Defined in: venpm/src/core/types.ts:189
 optional local?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:195
+Defined in: venpm/src/core/types.ts:209
 
 ##### noBuild?
 
@@ -800,7 +800,7 @@ Defined in: venpm/src/core/types.ts:195
 optional noBuild?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:198
+Defined in: venpm/src/core/types.ts:212
 
 ##### quiet?
 
@@ -808,7 +808,7 @@ Defined in: venpm/src/core/types.ts:198
 optional quiet?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:186
+Defined in: venpm/src/core/types.ts:200
 
 ###### Inherited from
 
@@ -820,7 +820,7 @@ Defined in: venpm/src/core/types.ts:186
 optional rebuild?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:199
+Defined in: venpm/src/core/types.ts:213
 
 ##### tarball?
 
@@ -828,7 +828,7 @@ Defined in: venpm/src/core/types.ts:199
 optional tarball?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:197
+Defined in: venpm/src/core/types.ts:211
 
 ##### verbose?
 
@@ -836,7 +836,7 @@ Defined in: venpm/src/core/types.ts:197
 optional verbose?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:185
+Defined in: venpm/src/core/types.ts:199
 
 ###### Inherited from
 
@@ -848,7 +848,7 @@ Defined in: venpm/src/core/types.ts:185
 optional version?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:193
+Defined in: venpm/src/core/types.ts:207
 
 ##### yes?
 
@@ -856,7 +856,7 @@ Defined in: venpm/src/core/types.ts:193
 optional yes?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:187
+Defined in: venpm/src/core/types.ts:201
 
 ###### Inherited from
 
@@ -970,7 +970,7 @@ Version metadata from the index (git_tag, tarball URL)
 
 ### IOContext
 
-Defined in: venpm/src/core/types.ts:172
+Defined in: venpm/src/core/types.ts:186
 
 #### Properties
 
@@ -980,7 +980,7 @@ Defined in: venpm/src/core/types.ts:172
 fs: FileSystem;
 ```
 
-Defined in: venpm/src/core/types.ts:173
+Defined in: venpm/src/core/types.ts:187
 
 ##### git
 
@@ -988,7 +988,7 @@ Defined in: venpm/src/core/types.ts:173
 git: GitClient;
 ```
 
-Defined in: venpm/src/core/types.ts:175
+Defined in: venpm/src/core/types.ts:189
 
 ##### http
 
@@ -996,7 +996,7 @@ Defined in: venpm/src/core/types.ts:175
 http: HttpClient;
 ```
 
-Defined in: venpm/src/core/types.ts:174
+Defined in: venpm/src/core/types.ts:188
 
 ##### prompter
 
@@ -1004,7 +1004,7 @@ Defined in: venpm/src/core/types.ts:174
 prompter: Prompter;
 ```
 
-Defined in: venpm/src/core/types.ts:177
+Defined in: venpm/src/core/types.ts:191
 
 ##### renderer
 
@@ -1012,7 +1012,7 @@ Defined in: venpm/src/core/types.ts:177
 renderer: Renderer;
 ```
 
-Defined in: venpm/src/core/types.ts:178
+Defined in: venpm/src/core/types.ts:192
 
 ##### shell
 
@@ -1020,7 +1020,7 @@ Defined in: venpm/src/core/types.ts:178
 shell: ShellRunner;
 ```
 
-Defined in: venpm/src/core/types.ts:176
+Defined in: venpm/src/core/types.ts:190
 
 ***
 
@@ -1244,7 +1244,7 @@ Direct tarball download URL
 
 ### Prompter
 
-Defined in: venpm/src/core/types.ts:166
+Defined in: venpm/src/core/types.ts:180
 
 #### Methods
 
@@ -1254,7 +1254,7 @@ Defined in: venpm/src/core/types.ts:166
 confirm(message, defaultValue?): Promise<boolean>;
 ```
 
-Defined in: venpm/src/core/types.ts:167
+Defined in: venpm/src/core/types.ts:181
 
 ###### Parameters
 
@@ -1273,7 +1273,7 @@ Defined in: venpm/src/core/types.ts:167
 input(message, defaultValue?): Promise<string>;
 ```
 
-Defined in: venpm/src/core/types.ts:168
+Defined in: venpm/src/core/types.ts:182
 
 ###### Parameters
 
@@ -1292,7 +1292,7 @@ Defined in: venpm/src/core/types.ts:168
 select<T>(message, choices): Promise<T>;
 ```
 
-Defined in: venpm/src/core/types.ts:169
+Defined in: venpm/src/core/types.ts:183
 
 ###### Type Parameters
 
@@ -1315,7 +1315,7 @@ Defined in: venpm/src/core/types.ts:169
 
 ### Renderer
 
-Defined in: venpm/src/core/types.ts:216
+Defined in: venpm/src/core/types.ts:230
 
 #### Methods
 
@@ -1325,7 +1325,7 @@ Defined in: venpm/src/core/types.ts:216
 dim(message): void;
 ```
 
-Defined in: venpm/src/core/types.ts:223
+Defined in: venpm/src/core/types.ts:237
 
 ###### Parameters
 
@@ -1343,7 +1343,7 @@ Defined in: venpm/src/core/types.ts:223
 error(info): void;
 ```
 
-Defined in: venpm/src/core/types.ts:221
+Defined in: venpm/src/core/types.ts:235
 
 ###### Parameters
 
@@ -1364,7 +1364,7 @@ finish(
    warnings?): void;
 ```
 
-Defined in: venpm/src/core/types.ts:234
+Defined in: venpm/src/core/types.ts:248
 
 Called when the command is done — renderers that buffer (JsonRenderer) flush here.
 
@@ -1386,7 +1386,7 @@ Called when the command is done — renderers that buffer (JsonRenderer) flush h
 heading(message): void;
 ```
 
-Defined in: venpm/src/core/types.ts:218
+Defined in: venpm/src/core/types.ts:232
 
 ###### Parameters
 
@@ -1404,7 +1404,7 @@ Defined in: venpm/src/core/types.ts:218
 keyValue(pairs): void;
 ```
 
-Defined in: venpm/src/core/types.ts:226
+Defined in: venpm/src/core/types.ts:240
 
 ###### Parameters
 
@@ -1422,7 +1422,7 @@ Defined in: venpm/src/core/types.ts:226
 list(items): void;
 ```
 
-Defined in: venpm/src/core/types.ts:227
+Defined in: venpm/src/core/types.ts:241
 
 ###### Parameters
 
@@ -1440,7 +1440,7 @@ Defined in: venpm/src/core/types.ts:227
 progress(id, message): ProgressHandle;
 ```
 
-Defined in: venpm/src/core/types.ts:229
+Defined in: venpm/src/core/types.ts:243
 
 ###### Parameters
 
@@ -1459,7 +1459,7 @@ Defined in: venpm/src/core/types.ts:229
 success(message): void;
 ```
 
-Defined in: venpm/src/core/types.ts:219
+Defined in: venpm/src/core/types.ts:233
 
 ###### Parameters
 
@@ -1477,7 +1477,7 @@ Defined in: venpm/src/core/types.ts:219
 table(headers, rows): void;
 ```
 
-Defined in: venpm/src/core/types.ts:225
+Defined in: venpm/src/core/types.ts:239
 
 ###### Parameters
 
@@ -1496,7 +1496,7 @@ Defined in: venpm/src/core/types.ts:225
 text(message): void;
 ```
 
-Defined in: venpm/src/core/types.ts:217
+Defined in: venpm/src/core/types.ts:231
 
 ###### Parameters
 
@@ -1514,7 +1514,7 @@ Defined in: venpm/src/core/types.ts:217
 verbose(message): void;
 ```
 
-Defined in: venpm/src/core/types.ts:222
+Defined in: venpm/src/core/types.ts:236
 
 ###### Parameters
 
@@ -1532,7 +1532,7 @@ Defined in: venpm/src/core/types.ts:222
 warn(message): void;
 ```
 
-Defined in: venpm/src/core/types.ts:220
+Defined in: venpm/src/core/types.ts:234
 
 ###### Parameters
 
@@ -1550,7 +1550,7 @@ Defined in: venpm/src/core/types.ts:220
 write(data): void;
 ```
 
-Defined in: venpm/src/core/types.ts:231
+Defined in: venpm/src/core/types.ts:245
 
 ###### Parameters
 
@@ -1590,7 +1590,7 @@ Defined in: venpm/src/core/types.ts:58
 
 ### ShellRunner
 
-Defined in: venpm/src/core/types.ts:157
+Defined in: venpm/src/core/types.ts:171
 
 #### Methods
 
@@ -1607,7 +1607,7 @@ exec(
 }>;
 ```
 
-Defined in: venpm/src/core/types.ts:158
+Defined in: venpm/src/core/types.ts:172
 
 ###### Parameters
 
@@ -1636,7 +1636,7 @@ spawn(
 options?): Promise<void>;
 ```
 
-Defined in: venpm/src/core/types.ts:163
+Defined in: venpm/src/core/types.ts:177
 
 ###### Parameters
 
@@ -1644,10 +1644,7 @@ Defined in: venpm/src/core/types.ts:163
 | ------ | ------ |
 | `cmd` | `string` |
 | `args` | `string`[] |
-| `options?` | \{ `cwd?`: `string`; `detached?`: `boolean`; `env?`: `Record`\<`string`, `string`\>; \} |
-| `options.cwd?` | `string` |
-| `options.detached?` | `boolean` |
-| `options.env?` | `Record`\<`string`, `string`\> |
+| `options?` | [`SpawnOptions`](#spawnoptions) |
 
 ###### Returns
 
@@ -1655,9 +1652,63 @@ Defined in: venpm/src/core/types.ts:163
 
 ***
 
+### SpawnOptions
+
+Defined in: venpm/src/core/types.ts:157
+
+#### Properties
+
+##### cwd?
+
+```ts
+optional cwd?: string;
+```
+
+Defined in: venpm/src/core/types.ts:158
+
+##### detached?
+
+```ts
+optional detached?: boolean;
+```
+
+Defined in: venpm/src/core/types.ts:159
+
+##### env?
+
+```ts
+optional env?: Record<string, string>;
+```
+
+Defined in: venpm/src/core/types.ts:160
+
+##### logFile?
+
+```ts
+optional logFile?: string;
+```
+
+Defined in: venpm/src/core/types.ts:168
+
+Append the child's stdout/stderr here instead of discarding them.
+
+##### unsetEnv?
+
+```ts
+optional unsetEnv?: string[];
+```
+
+Defined in: venpm/src/core/types.ts:166
+
+Environment variables to remove from the child's environment.
+Needed because an *empty* DISPLAY is not the same as an unset one:
+Electron treats `DISPLAY=""` as "use X11" and exits immediately.
+
+***
+
 ### ValidateOptions
 
-Defined in: venpm/src/core/types.ts:207
+Defined in: venpm/src/core/types.ts:221
 
 #### Extends
 
@@ -1671,7 +1722,7 @@ Defined in: venpm/src/core/types.ts:207
 optional config?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:184
+Defined in: venpm/src/core/types.ts:198
 
 ###### Inherited from
 
@@ -1683,7 +1734,7 @@ Defined in: venpm/src/core/types.ts:184
 optional json?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:188
+Defined in: venpm/src/core/types.ts:202
 
 ###### Inherited from
 
@@ -1695,7 +1746,7 @@ Defined in: venpm/src/core/types.ts:188
 optional jsonStream?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:189
+Defined in: venpm/src/core/types.ts:203
 
 ###### Inherited from
 
@@ -1707,7 +1758,7 @@ Defined in: venpm/src/core/types.ts:189
 optional quiet?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:186
+Defined in: venpm/src/core/types.ts:200
 
 ###### Inherited from
 
@@ -1719,7 +1770,7 @@ Defined in: venpm/src/core/types.ts:186
 optional strict?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:208
+Defined in: venpm/src/core/types.ts:222
 
 ##### verbose?
 
@@ -1727,7 +1778,7 @@ Defined in: venpm/src/core/types.ts:208
 optional verbose?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:185
+Defined in: venpm/src/core/types.ts:199
 
 ###### Inherited from
 
@@ -1739,7 +1790,7 @@ Defined in: venpm/src/core/types.ts:185
 optional yes?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:187
+Defined in: venpm/src/core/types.ts:201
 
 ###### Inherited from
 
@@ -1842,7 +1893,7 @@ type StreamEvent =
 };
 ```
 
-Defined in: venpm/src/core/types.ts:239
+Defined in: venpm/src/core/types.ts:253
 
 ## References
 

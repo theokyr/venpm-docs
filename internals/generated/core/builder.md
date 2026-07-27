@@ -4,7 +4,7 @@
 
 ### BuildAndDeployOptions
 
-Defined in: venpm/src/core/builder.ts:94
+Defined in: venpm/src/core/builder.ts:136
 
 #### Properties
 
@@ -14,7 +14,7 @@ Defined in: venpm/src/core/builder.ts:94
 optional discordBinary?: string;
 ```
 
-Defined in: venpm/src/core/builder.ts:96
+Defined in: venpm/src/core/builder.ts:138
 
 ##### pnpmEnv?
 
@@ -22,7 +22,7 @@ Defined in: venpm/src/core/builder.ts:96
 optional pnpmEnv?: Record<string, string>;
 ```
 
-Defined in: venpm/src/core/builder.ts:97
+Defined in: venpm/src/core/builder.ts:139
 
 ##### restart?
 
@@ -30,13 +30,21 @@ Defined in: venpm/src/core/builder.ts:97
 optional restart?: boolean;
 ```
 
-Defined in: venpm/src/core/builder.ts:95
+Defined in: venpm/src/core/builder.ts:137
+
+##### restartOptions?
+
+```ts
+optional restartOptions?: RestartOptions;
+```
+
+Defined in: venpm/src/core/builder.ts:140
 
 ***
 
 ### BuildVencordOptions
 
-Defined in: venpm/src/core/builder.ts:24
+Defined in: venpm/src/core/builder.ts:50
 
 #### Properties
 
@@ -46,13 +54,13 @@ Defined in: venpm/src/core/builder.ts:24
 optional pnpmEnv?: Record<string, string>;
 ```
 
-Defined in: venpm/src/core/builder.ts:25
+Defined in: venpm/src/core/builder.ts:51
 
 ***
 
 ### DeployResult
 
-Defined in: venpm/src/core/builder.ts:16
+Defined in: venpm/src/core/builder.ts:40
 
 #### Properties
 
@@ -62,7 +70,7 @@ Defined in: venpm/src/core/builder.ts:16
 deployed: boolean;
 ```
 
-Defined in: venpm/src/core/builder.ts:17
+Defined in: venpm/src/core/builder.ts:41
 
 ##### deployPath?
 
@@ -70,7 +78,7 @@ Defined in: venpm/src/core/builder.ts:17
 optional deployPath?: string;
 ```
 
-Defined in: venpm/src/core/builder.ts:18
+Defined in: venpm/src/core/builder.ts:42
 
 ##### restarted
 
@@ -78,7 +86,67 @@ Defined in: venpm/src/core/builder.ts:18
 restarted: boolean;
 ```
 
-Defined in: venpm/src/core/builder.ts:19
+Defined in: venpm/src/core/builder.ts:43
+
+##### restartedPids?
+
+```ts
+optional restartedPids?: number[];
+```
+
+Defined in: venpm/src/core/builder.ts:45
+
+PIDs of the Discord processes confirmed alive after the restart.
+
+***
+
+### RestartOptions
+
+Defined in: venpm/src/core/builder.ts:7
+
+#### Properties
+
+##### env?
+
+```ts
+optional env?: Record<string, string | undefined>;
+```
+
+Defined in: venpm/src/core/builder.ts:13
+
+##### logFile?
+
+```ts
+optional logFile?: string;
+```
+
+Defined in: venpm/src/core/builder.ts:10
+
+##### platform?
+
+```ts
+optional platform?: Platform;
+```
+
+Defined in: venpm/src/core/builder.ts:12
+
+Overrides for tests and for callers that launch into another session.
+
+##### settleMs?
+
+```ts
+optional settleMs?: number;
+```
+
+Defined in: venpm/src/core/builder.ts:8
+
+##### startupTimeoutMs?
+
+```ts
+optional startupTimeoutMs?: number;
+```
+
+Defined in: venpm/src/core/builder.ts:9
 
 ## Variables
 
@@ -88,7 +156,7 @@ Defined in: venpm/src/core/builder.ts:19
 const DEPLOY_PATHS: Record<"linux" | "darwin" | "win32", string>;
 ```
 
-Defined in: venpm/src/core/builder.ts:8
+Defined in: venpm/src/core/builder.ts:32
 
 ## Functions
 
@@ -102,7 +170,7 @@ function buildAndDeploy(
 options?): Promise<DeployResult>;
 ```
 
-Defined in: venpm/src/core/builder.ts:103
+Defined in: venpm/src/core/builder.ts:146
 
 Orchestrate build → deploy → (optional) restart.
 
@@ -130,7 +198,7 @@ function buildVencord(
 options?): Promise<void>;
 ```
 
-Defined in: venpm/src/core/builder.ts:32
+Defined in: venpm/src/core/builder.ts:58
 
 Run `pnpm build` inside `vencordPath`.
 Throws an error if the build exits with a non-zero code.
@@ -155,7 +223,7 @@ Throws an error if the build exits with a non-zero code.
 function deployDist(fs, vencordPath): Promise<DeployResult>;
 ```
 
-Defined in: venpm/src/core/builder.ts:60
+Defined in: venpm/src/core/builder.ts:86
 
 Copy `<vencordPath>/dist/` to the platform-specific deployed location.
 
@@ -177,21 +245,42 @@ installer is x86-only and often fails, so we make `rebuild` self-sufficient.
 
 ***
 
+### getLaunchLogPath()
+
+```ts
+function getLaunchLogPath(): string;
+```
+
+Defined in: venpm/src/core/builder.ts:17
+
+Where a failed launch leaves its output, so the error can quote it.
+
+#### Returns
+
+`string`
+
+***
+
 ### restartDiscord()
 
 ```ts
 function restartDiscord(
    fs, 
    shell, 
-discordBinary): Promise<void>;
+   discordBinary, 
+options?): Promise<LaunchVerification>;
 ```
 
-Defined in: venpm/src/core/builder.ts:82
+Defined in: venpm/src/core/builder.ts:112
 
-Kill all running Discord processes, wait for confirmed exit, then spawn
-the binary detached.  Uses `/proc/<pid>/exe`-based discovery so only
-verified Discord binaries are killed (no stray processes).  SIGTERM is
+Kill all running Discord processes, wait for confirmed exit, then start the
+binary again and *prove* it came back.  Uses `/proc/<pid>/exe`-based discovery
+so only verified Discord binaries are killed (no stray processes).  SIGTERM is
 tried first; survivors are escalated to SIGKILL.
+
+The launch is platform-aware (Wayland/X11 on Linux, `open -a` on macOS) and
+verified: an exit during the settle window raises an error instead of the
+caller reporting a restart that never happened.
 
 #### Parameters
 
@@ -200,7 +289,8 @@ tried first; survivors are escalated to SIGKILL.
 | `fs` | [`FileSystem`](types.md#filesystem) |
 | `shell` | [`ShellRunner`](types.md#shellrunner) |
 | `discordBinary` | `string` |
+| `options` | [`RestartOptions`](#restartoptions-1) |
 
 #### Returns
 
-`Promise`\<`void`\>
+`Promise`\<[`LaunchVerification`](launch.md#launchverification)\>

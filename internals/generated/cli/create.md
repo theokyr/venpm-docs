@@ -18,7 +18,7 @@ Defined in: venpm/src/cli/create.ts:9
 optional config?: string;
 ```
 
-Defined in: venpm/src/core/types.ts:184
+Defined in: venpm/src/core/types.ts:198
 
 ###### Inherited from
 
@@ -38,7 +38,7 @@ Defined in: venpm/src/cli/create.ts:11
 optional json?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:188
+Defined in: venpm/src/core/types.ts:202
 
 ###### Inherited from
 
@@ -50,7 +50,7 @@ Defined in: venpm/src/core/types.ts:188
 optional jsonStream?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:189
+Defined in: venpm/src/core/types.ts:203
 
 ###### Inherited from
 
@@ -70,7 +70,7 @@ Defined in: venpm/src/cli/create.ts:12
 optional quiet?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:186
+Defined in: venpm/src/core/types.ts:200
 
 ###### Inherited from
 
@@ -90,7 +90,7 @@ Defined in: venpm/src/cli/create.ts:10
 optional verbose?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:185
+Defined in: venpm/src/core/types.ts:199
 
 ###### Inherited from
 
@@ -102,7 +102,7 @@ Defined in: venpm/src/core/types.ts:185
 optional yes?: boolean;
 ```
 
-Defined in: venpm/src/core/types.ts:187
+Defined in: venpm/src/core/types.ts:201
 
 ###### Inherited from
 
