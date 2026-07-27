@@ -64,7 +64,8 @@ Defined in: venpm/src/core/discord.ts:12
 function findDiscordProcesses(
    fs, 
    shell, 
-configuredBinary?): Promise<DiscordProcess[]>;
+   configuredBinary?, 
+platform?): Promise<DiscordProcess[]>;
 ```
 
 Defined in: venpm/src/core/discord.ts:83
@@ -77,11 +78,12 @@ returns an empty array (Windows — handled separately by the caller).
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `fs` | [`FileSystem`](types.md#filesystem) |
-| `shell` | [`ShellRunner`](types.md#shellrunner) |
-| `configuredBinary?` | `string` \| `null` |
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `fs` | [`FileSystem`](types.md#filesystem) | `undefined` | - |
+| `shell` | [`ShellRunner`](types.md#shellrunner) | `undefined` | - |
+| `configuredBinary?` | `string` \| `null` | `undefined` | - |
+| `platform?` | `Platform` | `process.platform` | Which platform's discovery to use. Defaults to the host's, but callers that already resolve a platform must pass it — otherwise a caller targeting Linux silently gets the host's discovery instead, which is how the launch tests hung when run on macOS. |
 
 #### Returns
 
@@ -95,7 +97,7 @@ returns an empty array (Windows — handled separately by the caller).
 function findDiscordProcessesWin32(shell, configuredBinary?): Promise<DiscordProcess[]>;
 ```
 
-Defined in: venpm/src/core/discord.ts:105
+Defined in: venpm/src/core/discord.ts:112
 
 Windows has no /proc and no ps, so liveness comes from `tasklist` CSV output.
 Image names only — enough to answer "is Discord running?", which is what
@@ -147,7 +149,7 @@ function killDiscordProcesses(
 configuredBinary?): Promise<KillResult>;
 ```
 
-Defined in: venpm/src/core/discord.ts:234
+Defined in: venpm/src/core/discord.ts:241
 
 Kill all running Discord processes with SIGTERM → wait → SIGKILL escalation.
 
