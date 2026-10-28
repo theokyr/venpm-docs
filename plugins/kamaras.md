@@ -54,9 +54,9 @@ plugins:
     install: embedFix
   - name: betterBlockIgnore
     label: betterBlockIgnore
-    description: "A stricter block and ignore filter for chat, replies, mentions, and reactions."
+    description: "A stricter block and ignore filter for chat, replies, mentions, reactions, and the member list."
     prose:
-      - "betterBlockIgnore starts from Vencord's NoBlockedMessages behavior and extends it to Discord's ignored-user state, reply chains, mention references, and reaction events."
+      - "betterBlockIgnore starts from Vencord's NoBlockedMessages behavior and extends it to Discord's ignored-user state, reply chains, mention references, reaction events, and the channel member list."
       - "Use it when the collapsed blocked-message placeholder is still too noisy or when ignored users should be filtered as completely as blocked users."
     demoTitle: "betterBlockIgnore - privacy filter"
     source: https://github.com/theokyr/vencord-plugins/tree/main/plugins/betterBlockIgnore
